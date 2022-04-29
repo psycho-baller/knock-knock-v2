@@ -1,0 +1,204 @@
+.fullScreen {
+  position: fixed;
+  padding: 0;
+  margin: 0;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  //height: 100vh;
+}
+.dark {
+  background-color: #000;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+@keyframes identifier {
+  0% {
+    color: rgb(255, 255, 255);
+    opacity: 1;
+  }
+  1% {
+    visibility: visible;
+    color: rgb(255, 255, 255);
+  }
+  25% {
+    color: rgb(255, 255, 255);
+    opacity: 1;
+  }
+  50% {
+    color: rgb(255, 255, 255);
+
+    opacity: 0;
+  }
+  75% {
+    color: rgb(255, 255, 255);
+    opacity: 1;
+  }
+  100% {
+    color: rgb(255, 255, 255);
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+@keyframes flash {
+  0% {
+    color: rgb(255, 255, 255);
+    visibility: visible;
+    opacity: 0;
+  }
+  50% {
+    color: rgb(255, 255, 255);
+    opacity: 1;
+  }
+  100% {
+    color: rgb(255, 255, 255);
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+.animatedGrid {
+  position: fixed;
+  padding: 0;
+  margin: 0;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+  column-gap: 6%;
+  row-gap: 8%;
+
+  /* Explicit grid */
+  grid-template-areas:
+    "k w"
+    "req res"
+    "🌟 🌟";
+
+  grid-template-rows: repeat(3, 28%);
+  grid-template-columns: repeat(2, 47%);
+
+  --stagger-delay: 100ms;
+}
+
+.k {
+  grid-area: k;
+  animation-delay: calc(1 * var(--stagger-delay));
+  h1 {
+    visibility: hidden;
+    // animation-timing-function: ; /* how the animation will behave */
+    // animation-iteration-count: 2; /* how many times the animation will play */
+    animation-name: identifier; /* the name of the animation we defined above */
+    animation-delay: 0.1s; /* how long to delay the animation from starting */
+    animation-duration: 0.9s; /* the duration of the animation */
+    // animation: 4s ease-out 0s 1 indentifier;
+  }
+}
+.w {
+  grid-area: w;
+  animation-delay: calc(2 * var(--stagger-delay));
+  h1 {
+    visibility: hidden;
+  }
+}
+.req {
+  grid-area: req;
+  animation-delay: calc(3 * var(--stagger-delay));
+  h1 {
+    visibility: hidden;
+  }
+}
+.res {
+  grid-area: res;
+  animation-delay: calc(4 * var(--stagger-delay));
+  h1 {
+    visibility: hidden;
+  }
+}
+.star {
+  grid-area: 🌟;
+  animation-delay: calc(13 * var(--stagger-delay));
+  h1 {
+    visibility: hidden;
+  }
+}
+
+.k:hover {
+  h1 {
+    visibility: visible;
+  }
+}
+.k:hover + .w {
+  h1 {
+    animation: 0.3s flash;
+  }
+}
+.w:hover {
+  h1 {
+    visibility: visible;
+  }
+}
+.w:hover ~ .req {
+  h1 {
+    animation: 0.3s flash;
+  }
+}
+.req:hover {
+  h1 {
+    visibility: visible;
+  }
+}
+.req:hover ~ .res {
+  h1 {
+    animation: 0.3s flash;
+  }
+}
+.res:hover {
+  h1 {
+    visibility: visible;
+  }
+}
+.res:hover ~ .star {
+  h1 {
+    animation: 0.3s flash;
+  }
+}
+.star:hover {
+  h1 {
+    visibility: visible;
+  }
+}
+
+.knock {
+  font-family: "Nova Flat", "Verdana";
+  margin: 0;
+  font-size: 3rem;
+  top: 0%;
+  left: 25%;
+  position: absolute;
+}
+.who {
+  font-family: "Nova Flat", "Verdana";
+  margin: 0;
+  font-size: 3rem;
+  top: 20%;
+  left: 25%;
+  position: absolute;
+}
+.center {
+  display: grid;
+  //   top: 50%;
+  //   left: 50%;
+  //   transform: translate(-50%, -50%);
+  justify-items: center;
+  align-items: center;
+  font-size: 3rem;
+}
