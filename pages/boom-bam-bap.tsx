@@ -22,7 +22,7 @@ import { Howl, Howler } from "howler";
 const isWindowContext = typeof window !== "undefined";
 const x: number = (isWindowContext && window.innerWidth / 2) as number;
 const y: number = (isWindowContext && window.innerHeight / 2) as number;
-const Flashlight: NextPage = () => {
+const BoomBamBap: NextPage = () => {
   // const { results = [] } = joke
   // console.log(joke);
   // console.log(results);
@@ -110,4 +110,4 @@ const Flashlight: NextPage = () => {
   );
 };
 
-export default Flashlight;
+export default BoomBamBap;
