@@ -69,7 +69,7 @@ const Home: NextPage = () => {
 
       <div className={styles.main}>
         <div onMouseDown={stopSound}>
-          <Link href="./flashlight">
+          <Link href="./boom-bam-bap">
             <a>
               {/* 
           possible fixes:
