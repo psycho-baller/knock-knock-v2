@@ -49,6 +49,11 @@ const Home: NextPage = () => {
         sound.play();
       });
     }
+  }  function knockKnock() {
+    const sound = new Howl({
+      src: ["knock-knock.mp3"],
+    });
+    sound.play();
   }
   useEffect(() => {
     if (!navigator.userAgent.match(/chrome|chromium|crios/i)) {
@@ -68,7 +73,7 @@ const Home: NextPage = () => {
       </Head>
 
       <div className={styles.main}>
-        <div onMouseDown={stopSound}>
+        <div onMouseEnter={knockKnock} onMouseDown={stopSound}>
           <Link href="./boom-bam-bap">
             <a>
               {/* 
@@ -80,10 +85,10 @@ const Home: NextPage = () => {
           make it load on the same page:
            https://flaviocopes.com/react-show-different-component-on-click */}
               <Image
-                src="/flashlight.svg"
-                alt="flashlight"
-                height={120}
-                width={90}
+                src="/brown-door.svg"
+                alt="door"
+                height={240}
+                width={180}
               />
             </a>
           </Link>
