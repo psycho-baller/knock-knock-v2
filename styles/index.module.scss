@@ -10,7 +10,7 @@
   height: 100%;
   //height: 100vh;
   background-color: hsl(0, 0%, 0%);
-  animation: background-ending 3s 10s forwards;
+  animation: background-ending 3s 9.65s forwards;
 }
 .dark {
   background-color: hsl(0, 0%, 0%);
@@ -152,7 +152,7 @@
   h1 {
     visibility: hidden;
     animation: flash 3s 0.5s ease-in-out,
-      text-ending 2s calc(1 * var(--stagger-delay) + 11s) forwards;
+      text-ending 2s calc(1 * var(--stagger-delay) + 10.65s) forwards;
   }
 }
 .w {
@@ -160,8 +160,8 @@
   animation-delay: calc(2 * var(--stagger-delay));
   h1 {
     visibility: hidden;
-    animation: 3s flash 2.1s ease-in-out,
-      text-ending 2s calc(2 * var(--stagger-delay) + 11s) forwards;
+    animation: 2s flash 2.1s ease-in-out,
+      text-ending 2s calc(2 * var(--stagger-delay) + 10.65s) forwards;
   }
 }
 .req {
@@ -169,8 +169,8 @@
   animation-delay: calc(3 * var(--stagger-delay));
   h1 {
     visibility: hidden;
-    animation: 3s flash 3s ease-in-out,
-      text-ending 2s calc(3 * var(--stagger-delay) + 11s) forwards;
+    animation: 2s flash 3s ease-in-out,
+      text-ending 2s calc(3 * var(--stagger-delay) + 10.65s) forwards;
   }
 }
 .res {
@@ -178,8 +178,8 @@
   animation-delay: calc(4 * var(--stagger-delay));
   h1 {
     visibility: hidden;
-    animation: 3s flash 3.8s ease-in-out,
-      text-ending 2s calc(4 * var(--stagger-delay) + 11s) forwards;
+    animation: 2.15s flash 3.8s ease-in-out,
+      text-ending 2s calc(4 * var(--stagger-delay) + 10.65s) forwards;
   }
 }
 .star {
@@ -189,7 +189,7 @@
     visibility: hidden;
     // animation: 3s flash 5.3s ease-in-out;
     animation: shake 0.75s 5.55s 6 cubic-bezier(0.36, 0.07, 0.19, 0.97) both,
-      text-ending 2s calc(5 * var(--stagger-delay) + 11s) forwards;
+      text-ending 2s calc(7 * var(--stagger-delay) + 10.65s) forwards;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
     perspective: 1000px;

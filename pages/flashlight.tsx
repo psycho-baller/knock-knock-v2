@@ -89,7 +89,7 @@ const Flashlight: NextPage = () => {
             <h1 className={flashStyle.center}>knock knock...</h1>
           </div>
           <div className={flashStyle.w}>
-            <h1 className={flashStyle.center}>who&apos;s there...</h1>
+            <h1 className={flashStyle.center}>who&apos;s there?</h1>
           </div>
           <div className={flashStyle.req}>
             <h1 className={flashStyle.center}>ligma</h1>
