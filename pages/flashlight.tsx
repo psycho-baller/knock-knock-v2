@@ -76,7 +76,7 @@ const Flashlight: NextPage = () => {
       {/* <ReactFlashlight
         enabled={enabled}
         initialPosition={position}
-        size={150}
+        size={0}
         // darkness={.85}
         enableMouse={true}
         showCursor={true}

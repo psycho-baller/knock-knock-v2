@@ -9,10 +9,11 @@
   width: 100%;
   height: 100%;
   //height: 100vh;
-  background-color: #000;
+  background-color: hsl(0, 0%, 0%);
+  animation: background-ending 3s 10s forwards;
 }
 .dark {
-  background-color: #000;
+  background-color: hsl(0, 0%, 0%);
   width: 100%;
   height: 100%;
   top: 0;
@@ -68,7 +69,6 @@
   0% {
     color: rgb(255, 255, 255);
     opacity: 1;
-
   }
   10% {
     visibility: visible;
@@ -99,6 +99,26 @@
   }
 }
 
+@keyframes text-ending {
+  0% {
+    color: rgb(0, 0, 0);
+    visibility: visible;
+    opacity: 0;
+  }
+  // 50% {
+  //   opacity: 0.5;
+  // }
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+@keyframes background-ending {
+  100% {
+    background-color: hsl(0, 0%, 100%);
+  }
+}
+
 .animatedGrid {
   position: fixed;
   padding: 0;
@@ -123,7 +143,7 @@
   grid-template-rows: repeat(3, 28%);
   grid-template-columns: repeat(2, 47%);
 
-  --stagger-delay: 100ms;
+  --stagger-delay: 0.100s;
 }
 
 .k {
@@ -131,7 +151,8 @@
   animation-delay: calc(1 * var(--stagger-delay));
   h1 {
     visibility: hidden;
-    animation: 3s flash .5s ease-in-out;
+    animation: flash 3s 0.5s ease-in-out,
+      text-ending 2s calc(1 * var(--stagger-delay) + 11s) forwards;
   }
 }
 .w {
@@ -139,7 +160,8 @@
   animation-delay: calc(2 * var(--stagger-delay));
   h1 {
     visibility: hidden;
-    animation: 3s flash 2.1s ease-in-out;
+    animation: 3s flash 2.1s ease-in-out,
+      text-ending 2s calc(2 * var(--stagger-delay) + 11s) forwards;
   }
 }
 .req {
@@ -147,7 +169,8 @@
   animation-delay: calc(3 * var(--stagger-delay));
   h1 {
     visibility: hidden;
-    animation: 3s flash 3s ease-in-out;
+    animation: 3s flash 3s ease-in-out,
+      text-ending 2s calc(3 * var(--stagger-delay) + 11s) forwards;
   }
 }
 .res {
@@ -155,7 +178,8 @@
   animation-delay: calc(4 * var(--stagger-delay));
   h1 {
     visibility: hidden;
-    animation: 3s flash 3.8s ease-in-out;
+    animation: 3s flash 3.8s ease-in-out,
+      text-ending 2s calc(4 * var(--stagger-delay) + 11s) forwards;
   }
 }
 .star {
@@ -164,7 +188,8 @@
   h1 {
     visibility: hidden;
     // animation: 3s flash 5.3s ease-in-out;
-    animation: shake 0.75s 5.7s 6 cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+    animation: shake 0.75s 5.55s 6 cubic-bezier(0.36, 0.07, 0.19, 0.97) both,
+      text-ending 2s calc(5 * var(--stagger-delay) + 11s) forwards;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
     perspective: 1000px;
