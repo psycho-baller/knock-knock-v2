@@ -6,6 +6,8 @@ import React, { useEffect, useState } from "react";
 // import { ReactFlashlight } from "react-flashlight";
 import flashStyle from "../styles/index.module.scss";
 import { Howl, Howler } from "howler";
+import clientPromise from "../lib/mongodb";
+
 // https://github.com/goldfire/howler.js#quick-start
 
 // import index from '../pages/index.module.scss'
@@ -22,7 +24,7 @@ import { Howl, Howler } from "howler";
 const isWindowContext = typeof window !== "undefined";
 const x: number = (isWindowContext && window.innerWidth / 2) as number;
 const y: number = (isWindowContext && window.innerHeight / 2) as number;
-const BoomBamBap: NextPage = () => {
+const BoomBamBap: NextPage = ({ jokes }) => {
   // const { results = [] } = joke
   // console.log(joke);
   // console.log(results);
@@ -60,11 +62,49 @@ const BoomBamBap: NextPage = () => {
   // const [position, setPosition] = useState({ x: x, y: y });
   // const [enabled, setEnabled] = useState(true);
 
+  let knock: string = "";
+  let who: string = "";
+  // const [usedIDs, setUsedIDs] = useState(() => {
+  //   if (typeof window !== "undefined") {
+  //     const saved: string = localStorage.getItem("usedIDs") as string;
+  //     const initialValue = JSON.parse(saved);
+  //     var list: string[] = [] as string[];
+  //     for (var i in initialValue) {
+  //       list.push(initialValue[i]);
+  //     }
+  //     return list || ([] as string[]);
+  //   }
+  // });
+  var usedIDs = new Set();
+  // from local storage, get the used IDs
+  var counter = 0;
+  jokes.forEach((joke) => {
+    if (!usedIDs.has(joke._id)) {
+      usedIDs.add(joke._id);
+      knock = joke["who's-there"];
+      who = joke["who"];
+      counter++;
+    }
+    if (counter == 0) {
+      knock = "";
+      who = "";
+    }
+  });
   useEffect(() => {
     // runs when the page runs
     // setPosition({ x: x, y: y });
     boomBapPow();
+    // const saved: string = localStorage.getItem("usedIDs") as string;
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("usedID", JSON.stringify(Array.from(usedIDs)));
+    const saved = JSON.parse(localStorage.getItem("usedID") as string);
+    for (const i in saved.length) {
+      usedIDs.add(saved[i]);
+    }
+
+  }, [usedIDs]);
 
   return (
     <div className={flashStyle.fullScreen}>
@@ -81,33 +121,48 @@ const BoomBamBap: NextPage = () => {
         enableMouse={true}
         showCursor={true}
       > */}
-        <div
-          className={flashStyle.animatedGrid}
-          // onClick={() => setEnabled(!enabled)}
-        >
-          <div className={flashStyle.k}>
-            <h1 className={flashStyle.center}>knock knock...</h1>
-          </div>
-          <div className={flashStyle.w}>
-            <h1 className={flashStyle.center}>who&apos;s there?</h1>
-          </div>
-          <div className={flashStyle.req}>
-            <h1 className={flashStyle.center}>ligma</h1>
-          </div>
-          <div className={flashStyle.res}>
-            <h1 className={flashStyle.center}>ligma who?</h1>
-          </div>
-          <div
-            className={flashStyle.star}
-            // onMouseEnter={horn}
-            // onMouseLeave={gotchaBitch}
-          >
-            <h1 className={flashStyle.center}>ligma balls</h1>
-          </div>
+      <div
+        className={flashStyle.animatedGrid}
+        // onClick={() => setEnabled(!enabled)}
+      >
+        <div className={flashStyle.k}>
+          <h1 className={flashStyle.center}>knock knock...</h1>
         </div>
+        <div className={flashStyle.w}>
+          <h1 className={flashStyle.center}>who&apos;s there?</h1>
+        </div>
+        <div className={flashStyle.req}>
+          <h1 className={flashStyle.center}>{knock}</h1>
+        </div>
+        <div className={flashStyle.res}>
+          <h1 className={flashStyle.center}>{knock} who?</h1>
+        </div>
+        <div
+          className={flashStyle.star}
+          // onMouseEnter={horn}
+          // onMouseLeave={gotchaBitch}
+        >
+          <h1 className={flashStyle.center}>{who}</h1>
+        </div>
+      </div>
       {/* </ReactFlashlight> */}
     </div>
   );
 };
 
 export default BoomBamBap;
+
+export async function getServerSideProps(context: any) {
+  const client = await clientPromise;
+
+  const db = client.db("knock-knock");
+
+  let jokes = await db.collection("jokes").find({}).toArray();
+  // jokes = JSON.parse(JSON.stringify(jokes));
+
+  return {
+    props: {
+      jokes: JSON.parse(JSON.stringify(jokes)),
+    },
+  };
+}
