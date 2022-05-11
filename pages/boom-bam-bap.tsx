@@ -75,21 +75,45 @@ const BoomBamBap: NextPage = ({ jokes }) => {
   //     return list || ([] as string[]);
   //   }
   // });
-  var usedIDs = new Set();
   // from local storage, get the used IDs
   var counter = 0;
-  jokes.forEach((joke) => {
+  const [usedIDs, setUsedIDs] = useState(() => {
+    const usedID = new Set();
+
+    if (typeof window !== "undefined") {
+      const saved = JSON.parse(localStorage.getItem("usedIDs") as string);
+      if (saved) {
+        for (const i in saved.length) {
+          usedID.add(saved[i]);
+        }
+      }
+    }
+    return usedID;
+  });
+  // jokes.every((joke) => {
+  for (let joke of jokes) {
+    console.log(usedIDs);
+    // if (counter = 1) {
+    //   return false;
+    // }
     if (!usedIDs.has(joke._id)) {
+      // problem here
+      console.log(joke);
+
       usedIDs.add(joke._id);
       knock = joke["who's-there"];
       who = joke["who"];
       counter++;
+      console.log(usedIDs);
+
+      break;
     }
-    if (counter == 0) {
-      knock = "";
-      who = "";
+    if (counter == Object.keys(jokes).length) {
+      knock = "1";
+      who = "2";
     }
-  });
+    // return true;
+  }
   useEffect(() => {
     // runs when the page runs
     // setPosition({ x: x, y: y });
@@ -98,12 +122,8 @@ const BoomBamBap: NextPage = ({ jokes }) => {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("usedID", JSON.stringify(Array.from(usedIDs)));
-    const saved = JSON.parse(localStorage.getItem("usedID") as string);
-    for (const i in saved.length) {
-      usedIDs.add(saved[i]);
-    }
-
+    localStorage.setItem("usedIDs", JSON.stringify(Array.from(usedIDs)));
+    // usedIDs = new Set();
   }, [usedIDs]);
 
   return (
