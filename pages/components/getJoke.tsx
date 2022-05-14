@@ -3,7 +3,7 @@ import flashStyle from "../../styles/index.module.scss";
 const GetJoke = ({ jokes, id}) => {
   let knock: string = "";
   let who: string = "";
-  console.log(JSON.stringify(jokes));
+  console.log(jokes);
   const joke = jokes[id];
   console.log(joke, "        2nd");
 

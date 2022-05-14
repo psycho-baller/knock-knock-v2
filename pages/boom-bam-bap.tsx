@@ -1,6 +1,6 @@
 // https://github.com/sickdyd/react-flashlight/blob/master/src/ReactFlashlight.js
 // https://github.com/sickdyd/react-flashlight-demo/blob/master/src/App.js
-import type { NextPage } from "next";
+import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
 // import { ReactFlashlight } from "react-flashlight";
@@ -9,6 +9,8 @@ import { Howl, Howler } from "howler";
 import clientPromise from "../lib/mongodb";
 import useLocalStorage from "./hooks/useLocalStorage";
 import GetJoke from "./components/getJoke";
+import { jokeSchema } from "../utils/types";
+
 
 // https://github.com/goldfire/howler.js#quick-start
 
@@ -23,11 +25,16 @@ import GetJoke from "./components/getJoke";
 //     }
 //   }
 // }
-
+// Define the components props
+interface IndexProps {
+  jokes: Array<jokeSchema>
+}
 const isWindowContext = typeof window !== "undefined";
 const x: number = (isWindowContext && window.innerWidth / 2) as number;
 const y: number = (isWindowContext && window.innerHeight / 2) as number;
-const BoomBamBap: NextPage = ( jokes ) => {
+const BoomBamBap = ( props: IndexProps ) => {
+  const { jokes } = props;
+
   function boomBapPow() {
     const sound = new Howl({
       src: ["boom-bap-POW.mp3"],
@@ -189,13 +196,13 @@ export async function getServerSideProps(context: any) {
     _id?: string;
   };
   
-  let jokes: Partial<Jokes> = {};
-  jokes = await db.collection("jokes").find({}).toArray();
+  // let jokes: Partial<Jokes> = {};
+  let jokes = await db.collection("jokes").find({}).toArray();
   jokes = JSON.parse(JSON.stringify(jokes));
 
   return {
     props: {
-      jokes,
+      jokes: jokes,
     },
   };
 }
