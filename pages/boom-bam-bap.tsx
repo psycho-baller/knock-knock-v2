@@ -27,7 +27,7 @@ import GetJoke from "./components/getJoke";
 const isWindowContext = typeof window !== "undefined";
 const x: number = (isWindowContext && window.innerWidth / 2) as number;
 const y: number = (isWindowContext && window.innerHeight / 2) as number;
-const BoomBamBap: NextPage = ({ jokes }) => {
+const BoomBamBap: NextPage = ( jokes ) => {
   function boomBapPow() {
     const sound = new Howl({
       src: ["boom-bap-POW.mp3"],
@@ -137,9 +137,9 @@ const BoomBamBap: NextPage = ({ jokes }) => {
   useEffect(() => {
     // runs when the page runs
     // setPosition({ x: x, y: y });
-    var randomNum = Math.floor(Math.random() * jokes.length);
+    var randomNum = Math.floor(Math.random() * (Object.keys(jokes).length));
     while (usedIDs.includes(randomNum)) {
-      randomNum = Math.floor(Math.random() * jokes.length);
+      randomNum = Math.floor(Math.random() * (Object.keys(jokes).length));
     }
 
     // we use this if statement to make the usedIDs act as a set,
@@ -182,12 +182,20 @@ export async function getServerSideProps(context: any) {
   const client = await clientPromise;
 
   const db = client.db("knock-knock");
-
-  let jokes = await db.collection("jokes").find({}).toArray();
+  type Jokes = {
+    id?: number;
+    who?: string;
+    "who's-there"?: string;
+    _id?: string;
+  };
+  
+  let jokes: Partial<Jokes> = {};
+  jokes = await db.collection("jokes").find({}).toArray();
+  jokes = JSON.parse(JSON.stringify(jokes));
 
   return {
     props: {
-      jokes: JSON.parse(JSON.stringify(jokes)),
+      jokes,
     },
   };
 }

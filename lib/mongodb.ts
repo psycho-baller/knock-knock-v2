@@ -1,13 +1,13 @@
 import { MongoClient } from "mongodb";
 
-const uri = process.env.MONGODB_URI;
-const options = {
+const uri: any = process.env.MONGODB_URI;
+const options: any = {
   useUnifiedTopology: true,
   useNewUrlParser: true,
 };
 
-let client;
-let clientPromise;
+let client: MongoClient;
+let clientPromise: any;
 
 if (!process.env.MONGODB_URI) {
   throw new Error("Please add your Mongo URI to .env.local");
