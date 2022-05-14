@@ -58,12 +58,6 @@ const BoomBamBap: NextPage = ({ jokes }) => {
     // });
   }
 
-  // from local storage, get the used IDs
-  // const [usedIDs, setUsedIDs] = useLocalStorage("usedIDs", []);
-  // useEffect(() => {
-  //   localStorage.setItem("usedIDs", JSON.stringify(usedIDs));
-  // }, [usedIDs]);
-
   // function getJoke() {
   //   let knock: string = "";
   //   let who: string = "";
@@ -127,11 +121,37 @@ const BoomBamBap: NextPage = ({ jokes }) => {
   //     );
   //   }
   // }
+
+  // from local storage, get the used IDs
+  const [usedIDs, setUsedIDs] = useLocalStorage("usedIDs", [] as number[]);
+  useEffect(() => {
+    localStorage.setItem("usedIDs", JSON.stringify(usedIDs));
+
+    // if all jokes have been used, reset the usedIDs local storage
+    if (usedIDs.length == Object.keys(jokes).length) {
+      window.localStorage.setItem("usedIDs", JSON.stringify([]));
+    }
+  }, [jokes, usedIDs]);
+
   const [id, setID] = useState(0);
   useEffect(() => {
     // runs when the page runs
     // setPosition({ x: x, y: y });
-    setID(Math.floor(Math.random() * jokes.length));
+    var randomNum = Math.floor(Math.random() * jokes.length);
+    while (usedIDs.includes(randomNum)) {
+      randomNum = Math.floor(Math.random() * jokes.length);
+    }
+
+    // we use this if statement to make the usedIDs act as a set,
+    // but since we added lines 131-133,
+    // we don't need to add an if statement
+    // since the list resets when it becomes full
+    // and we are sure that the randomNum is not in the list thanks to the while loop
+    // if (!usedIDs.includes(randomNum)) {
+    setUsedIDs([...usedIDs, randomNum]);
+    // }
+    setID(randomNum);
+
     boomBapPow();
   }, []);
 
