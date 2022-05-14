@@ -74,7 +74,7 @@ const Home: NextPage = () => {
 
       <div className={styles.main}>
         <div onMouseEnter={knockKnock} onMouseDown={stopSound}>
-          <Link href="./boom-bam-bap">
+          <Link href="/boom-bam-bap">
             <a>
               {/* 
           possible fixes:
