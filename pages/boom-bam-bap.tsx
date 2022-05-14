@@ -43,21 +43,6 @@ const BoomBamBap = ( props: IndexProps ) => {
       sound.play();
     });
   }
-  function gotchaBitch() {
-    const sound = new Howl({
-      src: ["gotcha-bitch.mp3"],
-    });
-    sound.play();
-  }
-  function horn() {
-    var sound = new Howl({
-      src: ["air-horn.mp3"],
-    });
-
-    // Clear listener after first call.
-    sound.once("load", function () {
-      sound.play();
-    });
 
     // // Fires when the sound finishes playing.
     // sound.on("end", function () {
