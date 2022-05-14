@@ -44,12 +44,6 @@ const BoomBamBap = ( props: IndexProps ) => {
     });
   }
 
-    // // Fires when the sound finishes playing.
-    // sound.on("end", function () {
-    //   console.log("Finished!");
-    // });
-  }
-
   // function getJoke() {
   //   let knock: string = "";
   //   let who: string = "";
