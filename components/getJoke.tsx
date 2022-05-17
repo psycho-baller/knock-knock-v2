@@ -31,14 +31,14 @@ const GetJoke = ({ jokes, id }) => {
   return (
     <>
       <div className={flashStyle.req}>
-        <h1 className={flashStyle.center}>{knock}</h1>
+        <h1> {knock} </h1>
       </div>
       <div className={flashStyle.res}>
-        <h1 className={flashStyle.center}>{knock} who?</h1>
+        <h1>{knock} who?</h1>
       </div>
       <div className={flashStyle.star}>
-        <h1 className={flashStyle.center}>{who}</h1>
-        {CompleteJoke()}
+        <h1> {who} </h1>
+        <div className={flashStyle.completeJoke}>{CompleteJoke()}</div>
       </div>
     </>
   );
