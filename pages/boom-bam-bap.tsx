@@ -29,9 +29,9 @@ import { jokeSchema } from "../utils/types";
 interface IndexProps {
   jokes: Array<jokeSchema>
 }
-const isWindowContext = typeof window !== "undefined";
-const x: number = (isWindowContext && window.innerWidth / 2) as number;
-const y: number = (isWindowContext && window.innerHeight / 2) as number;
+// const isWindowContext = typeof window !== "undefined";
+// const x: number = (isWindowContext && window.innerWidth / 2) as number;
+// const y: number = (isWindowContext && window.innerHeight / 2) as number;
 const BoomBamBap = ( props: IndexProps ) => {
   const { jokes } = props;
 
@@ -156,8 +156,15 @@ const BoomBamBap = ( props: IndexProps ) => {
         <div className={flashStyle.w}>
           <h1 className={flashStyle.center}>who&apos;s there?</h1>
         </div>
-        <div>
-          <GetJoke jokes={jokes} id={id} />
+        {/* <GetJoke jokes={jokes} id={id} /> */}
+        <div className={flashStyle.req}>
+          <h1 className={flashStyle.center}>{jokes[id]["who's-there"]}</h1>
+        </div>
+        <div className={flashStyle.res}>
+          <h1 className={flashStyle.center}>{jokes[id]["who's-there"]} who?</h1>
+        </div>
+        <div className={flashStyle.star}>
+          <h1 className={flashStyle.center}>{jokes[id]["who"]}</h1>
         </div>
       </div>
     </div>
