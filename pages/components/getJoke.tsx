@@ -22,4 +22,4 @@ const GetJoke = ({ jokes, id }) => {
   );
 };
 
-export default GetJoke;
+// export default GetJoke;
