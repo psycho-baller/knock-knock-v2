@@ -7,8 +7,8 @@ import React, { useEffect, useState } from "react";
 import flashStyle from "../styles/index.module.scss";
 import { Howl, Howler } from "howler";
 import clientPromise from "../lib/mongodb";
-import useLocalStorage from "./hooks/useLocalStorage";
-// import GetJoke from "./components/getJoke";
+import useLocalStorage from "../hooks/useLocalStorage";
+import GetJoke from "../components/getJoke";
 import { jokeSchema } from "../utils/types";
 
 
@@ -156,16 +156,7 @@ const BoomBamBap = ( props: IndexProps ) => {
         <div className={flashStyle.w}>
           <h1 className={flashStyle.center}>who&apos;s there?</h1>
         </div>
-        {/* <GetJoke jokes={jokes} id={id} /> */}
-        <div className={flashStyle.req}>
-          <h1 className={flashStyle.center}>{jokes[id]["who's-there"]}</h1>
-        </div>
-        <div className={flashStyle.res}>
-          <h1 className={flashStyle.center}>{jokes[id]["who's-there"]} who?</h1>
-        </div>
-        <div className={flashStyle.star}>
-          <h1 className={flashStyle.center}>{jokes[id]["who"]}</h1>
-        </div>
+        <GetJoke jokes={jokes} id={id} />
       </div>
     </div>
   );
