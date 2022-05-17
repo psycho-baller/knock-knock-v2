@@ -1,4 +1,4 @@
-import flashStyle from "../../styles/index.module.scss";
+import flashStyle from "../styles/index.module.scss";
 
 const GetJoke = ({ jokes, id }) => {
   let knock: string = "";
