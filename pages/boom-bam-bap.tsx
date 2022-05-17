@@ -119,24 +119,24 @@ const BoomBamBap = ( props: IndexProps ) => {
     }
   }, [jokes, usedIDs]);
 
-  const [id, setID] = useState(0);
+  const [id, setID] = useState(9);
   useEffect(() => {
     // runs when the page runs
     // setPosition({ x: x, y: y });
-    var randomNum = Math.floor(Math.random() * (Object.keys(jokes).length));
-    while (usedIDs.includes(randomNum)) {
-      randomNum = Math.floor(Math.random() * (Object.keys(jokes).length));
-    }
+    // var randomNum = Math.floor(Math.random() * (Object.keys(jokes).length));
+    // while (usedIDs.includes(randomNum)) {
+    //   randomNum = Math.floor(Math.random() * (Object.keys(jokes).length));
+    // }
 
     // we use this if statement to make the usedIDs act as a set,
-    // but since we added lines 131-133,
-    // we don't need to add an if statement
+    // but since we added lines 117-119,
+    // we don't need to add an if statement anymore
     // since the list resets when it becomes full
     // and we are sure that the randomNum is not in the list thanks to the while loop
     // if (!usedIDs.includes(randomNum)) {
-    setUsedIDs([...usedIDs, randomNum]);
-    // }
-    setID(randomNum);
+    // setUsedIDs([...usedIDs, randomNum]);
+    // // }
+    // setID(randomNum);
 
     boomBapPow();
   }, []);

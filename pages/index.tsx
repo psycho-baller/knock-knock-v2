@@ -53,7 +53,11 @@ const Home: NextPage = () => {
     const sound = new Howl({
       src: ["knock-knock.mp3"],
     });
-    sound.play();
+    if(!stop){
+      sound.play();
+    } else {
+      sound.stop();
+    }
   }
   useEffect(() => {
     if (!navigator.userAgent.match(/chrome|chromium|crios/i)) {
