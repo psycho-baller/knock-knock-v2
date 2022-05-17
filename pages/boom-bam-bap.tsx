@@ -8,7 +8,7 @@ import flashStyle from "../styles/index.module.scss";
 import { Howl, Howler } from "howler";
 import clientPromise from "../lib/mongodb";
 import useLocalStorage from "./hooks/useLocalStorage";
-import GetJoke from "./components/getJoke";
+// import GetJoke from "./components/getJoke";
 import { jokeSchema } from "../utils/types";
 
 
