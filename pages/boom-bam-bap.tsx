@@ -156,7 +156,9 @@ const BoomBamBap = ( props: IndexProps ) => {
         <div className={flashStyle.w}>
           <h1 className={flashStyle.center}>who&apos;s there?</h1>
         </div>
-        <GetJoke jokes={jokes} id={id} />
+        <div>
+          <GetJoke jokes={jokes} id={id} />
+        </div>
       </div>
     </div>
   );
