@@ -134,7 +134,7 @@ const BoomBamBap = (props: IndexProps) => {
     // and we are sure that the randomNum is not in the list thanks to the while loop
     // if (!usedIDs.includes(randomNum)) {
     // setUsedIDs([...usedIDs, randomNum]);
-    // // // }
+    // }
     // setID(randomNum);
 
     boomBapPow();
@@ -168,14 +168,7 @@ export async function getServerSideProps(context: any) {
   const client = await clientPromise;
 
   const db = client.db("knock-knock");
-  type Jokes = {
-    id?: number;
-    who?: string;
-    "who's-there"?: string;
-    _id?: string;
-  };
 
-  // let jokes: Partial<Jokes> = {};
   let jokes = await db.collection("jokes").find({}).toArray();
   jokes = JSON.parse(JSON.stringify(jokes));
 

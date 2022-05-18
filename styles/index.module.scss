@@ -150,8 +150,13 @@
     h1 {
       text-align: center;
     }
-    .completeJoke{
-    align-items: center;
+    .completeJoke {
+      font-size: 2rem;
+
+      h2 {
+        text-align: center;
+        background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+      }
     }
   }
 }
@@ -228,17 +233,17 @@
   }
 }
 
-@media only screen and (min-width: 1000px) {
+@media (min-width: 1000px) {
   .animatedGrid > div > h1 {
-    font-size: 4.5rem;
+    font-size: 6rem;
   }
 }
-@media only screen and (max-height: 695px) {
+@media only screen and (max-height: 695px) and (max-width: 500px) {
   .animatedGrid > div > h1 {
     font-size: 2rem;
   }
 }
-@media only screen and (max-height: 660px) {
+@media only screen and (max-height: 660px) and (max-width: 500px) {
   .animatedGrid > div > h1 {
     font-size: 2.3rem;
   }
@@ -291,6 +296,11 @@
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
     perspective: 1000px;
+  }
+  h2 {
+    visibility: hidden;
+    animation: text-ending 2s calc(7 * var(--stagger-delay) + 10.65s) forwards
+    // ,2s flash 5.3s ease-in-out;
   }
 }
 

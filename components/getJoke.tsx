@@ -16,7 +16,6 @@ const GetJoke = ({ jokes, id }) => {
   knock = joke["who's-there"];
   who = joke["who"];
 
-  const [text, setText] = useState("");
   function CompleteJoke() {
     if (id == 9) {
       if (typeof window !== "undefined") {
@@ -26,12 +25,11 @@ const GetJoke = ({ jokes, id }) => {
         <>
           <Link href="/contact">
             <a>
-              <h3 onClick={() => setText("Under Construction")}>
+              <h2>
                 Complete Joke
-              </h3>
+              </h2>
             </a>
           </Link>
-          {text}
         </>
       );
     }
