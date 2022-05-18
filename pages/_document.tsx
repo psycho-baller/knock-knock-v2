@@ -4,7 +4,7 @@ import Document, {Head, Html, Main, NextScript} from "next/document";
 // but we import shit from other files here (functions)
 export default class MyDocument extends Document {
     render(){
-        // unline the _app.tsx file, here it's only for the client side (the inspect page source)
+        // unlike the _app.tsx file, here it's only for the client side (the inspect page source)
         // no js is run here, this is only a renderer for the root page
         // the js is used only in the pages
         

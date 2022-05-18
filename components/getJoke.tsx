@@ -4,9 +4,9 @@
     - when clicked, play the rest of the audio
         - not possible to click early coz button wont be shown
 */
+import Link from "next/link";
 import { useState } from "react";
 import flashStyle from "../styles/index.module.scss";
-
 
 const GetJoke = ({ jokes, id }) => {
   let knock: string = "";
@@ -15,18 +15,26 @@ const GetJoke = ({ jokes, id }) => {
 
   knock = joke["who's-there"];
   who = joke["who"];
-  
+
   const [text, setText] = useState("");
   function CompleteJoke() {
-    if (id == 9){
-    return (
-      <>
-      <button onClick={() => setText("Under Construction")}>
-      Complete Joke
-      </button>
-      {text}
-      </>
-      );}
+    if (id == 9) {
+      if (typeof window !== "undefined") {
+        localStorage.setItem("joke", JSON.stringify(jokes[id]));
+      }
+      return (
+        <>
+          <Link href="/contact">
+            <a>
+              <h3 onClick={() => setText("Under Construction")}>
+                Complete Joke
+              </h3>
+            </a>
+          </Link>
+          {text}
+        </>
+      );
+    }
   }
   return (
     <>
