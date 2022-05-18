@@ -1,9 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-// Notion API key: secret_bwFTTbDistG5RHL3CpAcJimmDLe06AeVVzv4wBtkgTj
-// type Data = {
-//   name: string;
-// };
+
 const { Client } = require("@notionhq/client");
 
 const notion = new Client({

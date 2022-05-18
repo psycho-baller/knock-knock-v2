@@ -16,7 +16,6 @@ export default function Contact() {
   if (typeof window !== "undefined") {
     jokeStr = localStorage.getItem("joke") as string;
   }
-  console.log(jokeStr);
   //   const joke = JSON.parse(JSON.parse(JSON.stringify(jokeStr))) as jokeSchema;
   //     console.log(joke, "parsed");
 
