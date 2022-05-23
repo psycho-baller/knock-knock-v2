@@ -55,7 +55,7 @@ Not until you...`;
       </Head>
       <ToastContainer />
       <form className={styles.form} onSubmit={submitForm}>
-        <h1 className={styles.title}>Reach Out To Us</h1>
+        <h1 className={styles.title}>Complete the Joke!</h1>
         <div>
           <label htmlFor="name">Name</label>
           <input

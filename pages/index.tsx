@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { Howl, Howler } from "howler";
+import { motion } from "framer-motion";
 
 // import index from '../pages/index.module.scss'
 
@@ -49,11 +50,12 @@ const Home: NextPage = () => {
         sound.play();
       });
     }
-  }  function knockKnock() {
+  }
+  function knockKnock() {
     const sound = new Howl({
       src: ["knock-knock.mp3"],
     });
-    if(!stop){
+    if (!stop) {
       sound.play();
     } else {
       sound.stop();
@@ -77,7 +79,32 @@ const Home: NextPage = () => {
       </Head>
 
       <div className={styles.main}>
-        <div onMouseEnter={knockKnock} onMouseDown={stopSound}>
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: {
+              scale: 0.4,
+              opacity: 0,
+            },
+            visible: {
+              scale: 1,
+              opacity: 1,
+              transition: {
+                delay: 0.4,
+                duration: 0.5,
+              },
+            },
+          }}
+          whileHover={{
+            scale: [1, 0.9,0.8, 0.9,0.8,0.9],
+            transition: {
+              duration: 0.5,
+            },
+          }}
+          onMouseEnter={knockKnock}
+          onMouseDown={stopSound}
+        >
           <Link href="/boom-bam-bap">
             <a>
               {/* 
@@ -96,7 +123,7 @@ const Home: NextPage = () => {
               />
             </a>
           </Link>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
