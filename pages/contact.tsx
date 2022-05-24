@@ -1,6 +1,5 @@
 import Head from "next/head";
 import styles from "../styles/contactForm.module.scss";
-import { jokeSchema } from "../utils/types";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
