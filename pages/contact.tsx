@@ -81,7 +81,7 @@ Not until you...`;
           animate="visible"
           variants={{
             hidden: {
-              scale: 1.6,
+              scale: 1.4,
               opacity: 0,
             },
             visible: {
@@ -101,7 +101,7 @@ Not until you...`;
           animate="visible"
           variants={{
             hidden: {
-              scale: 1.6,
+              scale: 1.4,
               opacity: 0,
             },
             visible: {
@@ -131,7 +131,7 @@ Not until you...`;
           animate="visible"
           variants={{
             hidden: {
-              scale: 1.6,
+              scale: 1.4,
               opacity: 0,
             },
             visible: {
@@ -161,7 +161,7 @@ Not until you...`;
           animate="visible"
           variants={{
             hidden: {
-              scale: 1.6,
+              scale: 1.4,
               opacity: 0,
             },
             visible: {
@@ -192,7 +192,7 @@ Not until you...`;
           animate="visible"
           variants={{
             hidden: {
-              scale: 1.6,
+              scale: 1.4,
               opacity: 0,
             },
             visible: {
