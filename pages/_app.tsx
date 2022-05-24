@@ -10,7 +10,8 @@ function MyApp({ Component, pageProps, router }: AppProps) {
   // proof: use console.log and you'll get a a log in both places
 
   return (
-    <AnimatePresence>
+    <AnimatePresence
+    exitBeforeEnter={true}>
     <motion.div
       key={router.route}
       initial="pageInitial"

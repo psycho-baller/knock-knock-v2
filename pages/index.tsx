@@ -66,6 +66,7 @@ const Home: NextPage = () => {
       // works in all browsers except chromium based browsers
       // this line won't run in chromium based browsers
       introSound();
+      setTimeout(knockKnock, 800);
     }
   }, []);
   return (
@@ -97,7 +98,7 @@ const Home: NextPage = () => {
             },
           }}
           whileHover={{
-            scale: [1, 0.9,0.8, 0.9,0.8,0.9],
+            scale: [1, 0.9, 0.8, 0.9, 0.8, 0.9],
             transition: {
               duration: 0.5,
             },
@@ -105,9 +106,18 @@ const Home: NextPage = () => {
           onMouseEnter={knockKnock}
           onMouseDown={stopSound}
         >
-          <Link href="/boom-bam-bap">
-            <a>
-              {/* 
+          <motion.div
+            animate={{
+              scale: [1, 0.9, 0.8, 0.9, 0.8, 0.9, 1],
+              transition: {
+                delay: 1.1,
+                duration: 0.55,
+              },
+            }}
+          >
+            <Link href="/boom-bam-bap">
+              <a>
+                {/*
           possible fixes:
            https://github.com/vercel/next.js/issues/7915
           then:
@@ -115,14 +125,15 @@ const Home: NextPage = () => {
           ------------------------------------------------------------
           make it load on the same page:
            https://flaviocopes.com/react-show-different-component-on-click */}
-              <Image
-                src="/brown-door.svg"
-                alt="door"
-                height={240}
-                width={180}
-              />
-            </a>
-          </Link>
+                <Image
+                  src="/brown-door.svg"
+                  alt="door"
+                  height={450}
+                  width={300}
+                />
+              </a>
+            </Link>
+          </motion.div>
         </motion.div>
       </div>
     </div>

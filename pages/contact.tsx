@@ -2,6 +2,7 @@ import Head from "next/head";
 import styles from "../styles/contactForm.module.scss";
 import { jokeSchema } from "../utils/types";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 // For display toasts
 import { ToastContainer, toast } from "react-toastify";
@@ -54,9 +55,65 @@ Not until you...`;
         <link rel="icon" href="/blue-door.svg" />
       </Head>
       <ToastContainer />
-      <form className={styles.form} onSubmit={submitForm}>
-        <h1 className={styles.title}>Complete the Joke!</h1>
-        <div>
+      <motion.form
+        className={styles.form}
+        onSubmit={submitForm}
+        initial="hidden"
+        animate="visible"
+        variants={{
+          hidden: {
+            scale: 0.6,
+            opacity: 0,
+          },
+          visible: {
+            scale: 1,
+            opacity: 1,
+            transition: {
+              delay: 0.1,
+              duration: 0.60,
+            },
+          },
+        }}
+      >
+        <motion.h1
+          className={styles.title}
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: {
+              scale: 1.6,
+              opacity: 0,
+            },
+            visible: {
+              scale: 1,
+              opacity: 1,
+              transition: {
+                delay: 0.25,
+                duration: 0.5,
+              },
+            },
+          }}
+        >
+          Complete the Joke!
+        </motion.h1>
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: {
+              scale: 1.6,
+              opacity: 0,
+            },
+            visible: {
+              scale: 1,
+              opacity: 1,
+              transition: {
+                delay: 0.31,
+                duration: 0.5,
+              },
+            },
+          }}
+        >
           <label htmlFor="name">Name</label>
           <input
             type="text"
@@ -67,8 +124,26 @@ Not until you...`;
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
-        </div>
-        <div className={styles.inputs}>
+        </motion.div>
+        <motion.div
+          className={styles.inputs}
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: {
+              scale: 1.6,
+              opacity: 0,
+            },
+            visible: {
+              scale: 1,
+              opacity: 1,
+              transition: {
+                delay: 0.37,
+                duration: 0.5,
+              },
+            },
+          }}
+        >
           <div>
             <label htmlFor="email">E-Mail Address</label>
             <input
@@ -80,8 +155,25 @@ Not until you...`;
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-        </div>
-        <div>
+        </motion.div>
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: {
+              scale: 1.6,
+              opacity: 0,
+            },
+            visible: {
+              scale: 1,
+              opacity: 1,
+              transition: {
+                delay: 0.44,
+                duration: 0.5,
+              },
+            },
+          }}
+        >
           <label htmlFor="message">
             Completion <span className={styles.redText}>*</span>
           </label>
@@ -94,11 +186,30 @@ Not until you...`;
             value={completion}
             onChange={(e) => setCompletion(e.target.value)}
           ></textarea>
-        </div>
-        <button className={styles.btn} type="submit">
+        </motion.div>
+        <motion.button
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: {
+              scale: 1.6,
+              opacity: 0,
+            },
+            visible: {
+              scale: 1,
+              opacity: 1,
+              transition: {
+                delay: 0.52,
+                duration: 0.5,
+              },
+            },
+          }}
+          className={styles.btn}
+          type="submit"
+        >
           Submit
-        </button>
-      </form>
+        </motion.button>
+      </motion.form>
     </div>
   );
 }
