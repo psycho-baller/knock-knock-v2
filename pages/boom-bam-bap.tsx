@@ -28,15 +28,13 @@ import { jokeSchema } from "../utils/types";
 interface IndexProps {
   jokes: Array<jokeSchema>;
 }
-// const isWindowContext = typeof window !== "undefined";
-// const x: number = (isWindowContext && window.innerWidth / 2) as number;
-// const y: number = (isWindowContext && window.innerHeight / 2) as number;
+
 const BoomBamBap = (props: IndexProps) => {
   const { jokes } = props;
 
   function boomBapBap() {
     const sound = new Howl({
-      src: ["boom-bap-Bap.mp3"],
+      src: ["boom-bap-POW.mp3"],
     });
     sound.once("load", function () {
       sound.play();
@@ -57,22 +55,21 @@ const BoomBamBap = (props: IndexProps) => {
 
   const [id, setID] = useState(9);
   useEffect(() => {
-    // runs when the page runs
-    // setPosition({ x: x, y: y });
-    var randomNum = Math.floor(Math.random() * Object.keys(jokes).length);
-    while (usedIDs.includes(randomNum)) {
-      randomNum = Math.floor(Math.random() * Object.keys(jokes).length);
-    }
+    // runs only when the page renders for the first time
+    // var randomNum = Math.floor(Math.random() * Object.keys(jokes).length);
+    // while (usedIDs.includes(randomNum)) {
+    //   randomNum = Math.floor(Math.random() * Object.keys(jokes).length);
+    // }
 
     // we use this if statement to make the usedIDs act as a set,
-    // but since we added lines 117-119,
+    // but since we added lines 50-52, where we reset the usedIDs local storage,
     // we don't need to add an if statement anymore
     // since the list resets when it becomes full
     // and we are sure that the randomNum is not in the list thanks to the while loop
     // if (!usedIDs.includes(randomNum)) {
-    setUsedIDs([...usedIDs, randomNum]);
-    // }
-    setID(randomNum);
+    // setUsedIDs([...usedIDs, randomNum]);
+    // // }
+    // setID(randomNum);
 
     boomBapBap();
   }, []);
