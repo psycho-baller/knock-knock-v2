@@ -35,9 +35,6 @@ const GetJoke = ({ jokes, id }) => {
       );
     }
   }
-  if (id == 9) {
-    dots = "...";
-  }
   return (
     <>
       <div className={flashStyle.req}>
@@ -47,9 +44,11 @@ const GetJoke = ({ jokes, id }) => {
         <h1>{knock} who?</h1>
       </div>
       <div className={flashStyle.star}>
-        <div className={buttonStyle.button}>
-          <button> click me</button>
-        </div>
+        <Link href="/add-joke">
+            <a>
+          <button className={buttonStyle.button}>Add Your own Joke!</button>
+          </a>
+          </Link>
         <h1>
           {who}
           <motion.span
@@ -76,7 +75,8 @@ const GetJoke = ({ jokes, id }) => {
               },
             }}
           >
-            {dots}
+            {id == 9 ? "..." : ""}
+
           </motion.span>
         </h1>
         <div className={flashStyle.completeJoke}>{CompleteJoke()}</div>
