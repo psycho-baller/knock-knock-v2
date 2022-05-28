@@ -2,6 +2,8 @@ import Head from "next/head";
 import styles from "../styles/contactForm.module.scss";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { animations } from "../animations/contact";
+
 
 // For display toasts
 import { ToastContainer, toast } from "react-toastify";
@@ -59,59 +61,20 @@ Not until you...`;
         onSubmit={submitForm}
         initial="hidden"
         animate="visible"
-        variants={{
-          hidden: {
-            scale: 0.6,
-            opacity: 0,
-          },
-          visible: {
-            scale: 1,
-            opacity: 1,
-            transition: {
-              delay: 0.1,
-              duration: 0.60,
-            },
-          },
-        }}
+        variants={animations.form}
       >
         <motion.h1
           className={styles.title}
           initial="hidden"
           animate="visible"
-          variants={{
-            hidden: {
-              scale: 1.4,
-              opacity: 0,
-            },
-            visible: {
-              scale: 1,
-              opacity: 1,
-              transition: {
-                delay: 0.25,
-                duration: 0.5,
-              },
-            },
-          }}
+          variants={animations.title}
         >
           Complete the Joke!
         </motion.h1>
         <motion.div
           initial="hidden"
           animate="visible"
-          variants={{
-            hidden: {
-              scale: 1.4,
-              opacity: 0,
-            },
-            visible: {
-              scale: 1,
-              opacity: 1,
-              transition: {
-                delay: 0.31,
-                duration: 0.5,
-              },
-            },
-          }}
+          variants={animations.inputName}
         >
           <label htmlFor="name">Name</label>
           <input
@@ -128,20 +91,7 @@ Not until you...`;
           className={styles.inputs}
           initial="hidden"
           animate="visible"
-          variants={{
-            hidden: {
-              scale: 1.4,
-              opacity: 0,
-            },
-            visible: {
-              scale: 1,
-              opacity: 1,
-              transition: {
-                delay: 0.37,
-                duration: 0.5,
-              },
-            },
-          }}
+          variants={animations.inputEmail}
         >
           <div>
             <label htmlFor="email">E-Mail Address</label>
@@ -158,20 +108,7 @@ Not until you...`;
         <motion.div
           initial="hidden"
           animate="visible"
-          variants={{
-            hidden: {
-              scale: 1.4,
-              opacity: 0,
-            },
-            visible: {
-              scale: 1,
-              opacity: 1,
-              transition: {
-                delay: 0.44,
-                duration: 0.5,
-              },
-            },
-          }}
+          variants={animations.inputCompletion}
         >
           <label htmlFor="message">
             Completion <span className={styles.redText}>*</span>
@@ -189,20 +126,7 @@ Not until you...`;
         <motion.button
           initial="hidden"
           animate="visible"
-          variants={{
-            hidden: {
-              scale: 1.4,
-              opacity: 0,
-            },
-            visible: {
-              scale: 1,
-              opacity: 1,
-              transition: {
-                delay: 0.52,
-                duration: 0.5,
-              },
-            },
-          }}
+          variants={animations.button}
           className={styles.btn}
           type="submit"
         >

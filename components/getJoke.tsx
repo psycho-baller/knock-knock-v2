@@ -9,6 +9,8 @@ import { useState } from "react";
 import flashStyle from "../styles/index.module.scss";
 import buttonStyle from "../styles/addButton.module.scss";
 import { motion } from "framer-motion";
+import { animations } from "../animations/getJoke";
+
 
 const GetJoke = ({ jokes, id }) => {
   let knock: string = "";
@@ -54,26 +56,8 @@ const GetJoke = ({ jokes, id }) => {
           <motion.span
             initial="hidden"
             animate="visible"
-            variants={{
-              hidden: {
-                scale: 0.4,
-                opacity: 0,
-              },
-              visible: {
-                scale: 1,
-                opacity: 1,
-                transition: {
-                  delay: 0.4,
-                  duration: 0.5,
-                },
-              },
-            }}
-            whileHover={{
-              scale: [1, 0.9, 0.8, 0.9, 0.8, 0.9],
-              transition: {
-                duration: 0.5,
-              },
-            }}
+            variants={animations.variants}
+            whileHover={animations.whileHover}
           >
             {id == 9 ? "..." : ""}
 

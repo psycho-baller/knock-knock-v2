@@ -19,7 +19,7 @@ export default async function handler(req, res) {
     const { setName, setEmail, jokeStr, completion } = JSON.parse(req.body);
     await notion.pages.create({
       parent: {
-        database_id: process.env.NOTION_DATABASE_ID,
+        database_id: process.env.NOTION_COMPLETION_DB,
       },
       properties: {
         Name: {

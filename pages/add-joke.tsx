@@ -1,7 +1,8 @@
 import Head from "next/head";
 import styles from "../styles/contactForm.module.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { animations } from "../animations/contact";
 
 // For display toasts
 import { ToastContainer, toast } from "react-toastify";
@@ -11,6 +12,7 @@ export default function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [completion, setCompletion] = useState("");
+  const [joke, setJoke] = useState("knock-knock");
 
   let jokeStr = "9";
   if (typeof window !== "undefined") {
@@ -34,19 +36,27 @@ export default function Contact() {
       toast("Please re-check your inputs.", { type: "error" });
     }
   };
+  // let typeOfJoke: HTMLInputElement;
+  // if (typeof window !== "undefined") {
+  //   typeOfJoke = document.getElementById("typeOfJoke") as HTMLInputElement;
+  // }
+  // useEffect(() => {
+  //   typeOfJoke = document.getElementById("joke-type") as HTMLInputElement;
+  // }, []);
+  function addJoke(){
+    if (joke === "knock-knock") {
+    return <div>
+      <h1>Knock Knock</h1>
 
-  let previewJoke: string = `knock knock...
-who's there?
-May I come in?
-May I come in who?
-Not until you...`;
-  //   if (joke) {
-  //     previewJoke = `knock knock...
-  // who's there?
-  // ${joke["who's-there"]}
-  // ${joke["who's-there"]} who?
-  // ${joke["who"]}`;
-  //   }
+    </div>;
+    }
+    else {
+      return <div>
+
+      </div>;
+    }
+  }
+
   return (
     <div className={styles.container}>
       <Head>
@@ -59,59 +69,20 @@ Not until you...`;
         onSubmit={submitForm}
         initial="hidden"
         animate="visible"
-        variants={{
-          hidden: {
-            scale: 0.6,
-            opacity: 0,
-          },
-          visible: {
-            scale: 1,
-            opacity: 1,
-            transition: {
-              delay: 0.1,
-              duration: 0.6,
-            },
-          },
-        }}
+        variants={animations.form}
       >
         <motion.h1
           className={styles.title}
           initial="hidden"
           animate="visible"
-          variants={{
-            hidden: {
-              scale: 1.4,
-              opacity: 0,
-            },
-            visible: {
-              scale: 1,
-              opacity: 1,
-              transition: {
-                delay: 0.25,
-                duration: 0.5,
-              },
-            },
-          }}
+          variants={animations.title}
         >
           Add your own Joke!
         </motion.h1>
         <motion.div
           initial="hidden"
           animate="visible"
-          variants={{
-            hidden: {
-              scale: 1.4,
-              opacity: 0,
-            },
-            visible: {
-              scale: 1,
-              opacity: 1,
-              transition: {
-                delay: 0.31,
-                duration: 0.5,
-              },
-            },
-          }}
+          variants={animations.inputName}
         >
           <label htmlFor="name">Name</label>
           <input
@@ -125,84 +96,53 @@ Not until you...`;
           />
         </motion.div>
         <motion.div
-          className={styles.inputs}
+          // className={styles.inputs}
           initial="hidden"
           animate="visible"
-          variants={{
-            hidden: {
-              scale: 1.4,
-              opacity: 0,
-            },
-            visible: {
-              scale: 1,
-              opacity: 1,
-              transition: {
-                delay: 0.37,
-                duration: 0.5,
-              },
-            },
-          }}
+          variants={animations.inputEmail}
         >
-          <div>
-            <label htmlFor="email">E-Mail Address</label>
-            <input
-              type="email"
-              name="email"
-              placeholder="mo.bamba@example.io (optional)"
-              required={false}
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
+          {/* <div> */}
+          <label htmlFor="email">E-Mail Address</label>
+          <input
+            type="email"
+            name="email"
+            placeholder="mo.bamba@example.io (optional)"
+            required={false}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          {/* </div> */}
         </motion.div>
         <motion.div
           initial="hidden"
           animate="visible"
-          variants={{
-            hidden: {
-              scale: 1.4,
-              opacity: 0,
-            },
-            visible: {
-              scale: 1,
-              opacity: 1,
-              transition: {
-                delay: 0.44,
-                duration: 0.5,
-              },
-            },
-          }}
+          variants={animations.inputCompletion}
         >
           <label htmlFor="message">
-            Completion <span className={styles.redText}>*</span>
+            Add Joke <span className={styles.redText}>*</span>
           </label>
-          <textarea
+          <div className={styles.dropdown}>
+            <button className={styles.dropbtn}>{joke}</button>
+            <div className={styles.dropdownContent}>
+              <div onClick={() => setJoke("knock-knock")}>Knock-knock</div>
+              <div onClick={() => setJoke("Riddle")}>Riddle</div>
+            </div>
+          </div>
+          {addJoke()}
+          {/* <textarea
             name="message"
             id="message"
             rows={5}
-            placeholder={previewJoke}
+            placeholder=""
             required
             value={completion}
             onChange={(e) => setCompletion(e.target.value)}
-          ></textarea>
+          ></textarea> */}
         </motion.div>
         <motion.button
           initial="hidden"
           animate="visible"
-          variants={{
-            hidden: {
-              scale: 1.4,
-              opacity: 0,
-            },
-            visible: {
-              scale: 1,
-              opacity: 1,
-              transition: {
-                delay: 0.52,
-                duration: 0.5,
-              },
-            },
-          }}
+          variants={animations.button}
           className={styles.btn}
           type="submit"
         >

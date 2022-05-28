@@ -6,6 +6,7 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { Howl, Howler } from "howler";
 import { motion } from "framer-motion";
+import { animation } from "../animations";
 
 // import index from '../pages/index.module.scss'
 
@@ -81,39 +82,15 @@ const Home: NextPage = () => {
 
       <div className={styles.main}>
         <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={{
-            hidden: {
-              scale: 0.4,
-              opacity: 0,
-            },
-            visible: {
-              scale: 1,
-              opacity: 1,
-              transition: {
-                delay: 0.4,
-                duration: 0.5,
-              },
-            },
-          }}
-          whileHover={{
-            scale: [1, 0.9, 0.8, 0.9, 0.8, 0.9],
-            transition: {
-              duration: 0.5,
-            },
-          }}
           onMouseEnter={knockKnock}
           onMouseDown={stopSound}
+          initial="hidden"
+          animate="visible"
+          variants={animation.variants}
+          whileHover={animation.whileHover}
         >
           <motion.div
-            animate={{
-              scale: [1, 0.9, 0.8, 0.9, 0.8, 0.9, 1],
-              transition: {
-                delay: 1.1,
-                duration: 0.55,
-              },
-            }}
+            animate={animation.animate}
           >
             <Link href="/boom-bam-bap">
               <a>
