@@ -14,6 +14,7 @@ export default function Contact() {
   const [completion, setCompletion] = useState("");
   const [joke, setJoke] = useState("knock-knock");
 
+  const [first, setFirst] = useState("");
   let jokeStr = "9";
   if (typeof window !== "undefined") {
     jokeStr = localStorage.getItem("joke") as string;
@@ -45,15 +46,90 @@ export default function Contact() {
   // }, []);
   function addJoke(){
     if (joke === "knock-knock") {
-    return <div>
-      <h1>Knock Knock</h1>
-
-    </div>;
+    return (
+      <>
+        <div className={styles.oneLine}>
+          <label htmlFor="first">Knock&nbsp;Knock:</label>
+          <input
+            type="text"
+            id="first"
+            name="first"
+            placeholder="Ligma"
+            required={true}
+            value={name}
+            onChange={(e) => {
+              setFirst(e.target.value);
+              setName(e.target.value)}}
+          />
+        </div>
+        <div className={styles.oneLine}>
+          <label htmlFor="first">Knock&nbsp;Knock:</label>
+          <input
+            type="text"
+            id="first"
+            name="first"
+            placeholder="Ligma"
+            required={true}
+            value={name}
+            onChange={(e) => setFirst(e.target.value)}
+          />
+        </div>
+        <div className={styles.oneLine}>
+          <label htmlFor="first">Knock&nbsp;Knock:</label>
+          <input
+            type="text"
+            id="first"
+            name="first"
+            placeholder="Ligma"
+            required={true}
+            value={name}
+            onChange={(e) => setFirst(e.target.value)}
+          />
+        </div>
+        <div className={styles.oneLine}>
+          <label htmlFor="first">Knock&nbsp;Knock:</label>
+          <input
+            type="text"
+            id="first"
+            name="first"
+            placeholder="Ligma"
+            required={true}
+            value={name}
+            onChange={(e) => setFirst(e.target.value)}
+          />
+        </div>
+      </>
+    );
     }
     else {
-      return <div>
-
-      </div>;
+      return (
+        <>
+          <div className={styles.oneLine}>
+            <label htmlFor="first">Riddle:</label>
+            <input
+              type="text"
+              id="first"
+              name="first"
+              placeholder="Ligma"
+              required={true}
+              value={name}
+              onChange={(e) => setFirst(e.target.value)}
+            />
+          </div>
+          <div className={styles.oneLine}>
+            <label htmlFor="first">Answer:</label>
+            <input
+              type="text"
+              id="first"
+              name="first"
+              placeholder="Ligma"
+              required={true}
+              value={name}
+              onChange={(e) => setFirst(e.target.value)}
+            />
+          </div>
+        </>
+      );
     }
   }
 
@@ -77,7 +153,7 @@ export default function Contact() {
           animate="visible"
           variants={animations.title}
         >
-          Add your own Joke!
+          Add your own&nbsp;Joke!
         </motion.h1>
         <motion.div
           initial="hidden"
