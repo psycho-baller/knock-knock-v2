@@ -37,7 +37,7 @@ export default function Contact() {
       firstKnock !== ""
         ? "Knock-knock?" + "\n" + "Who's there?" + "\n" +  firstKnock + "\n" + firstKnock + " who?" + "\n" + secondKnock
         : riddleQuestion + "\n" + riddleAnswer;
-    const res = (await fetch("http://localhost:3000/api/add-joke-api", {
+    const res = (await fetch("https://knock-knock.vercel.app/api/add-joke-api", {
       method: "POST",
       body: JSON.stringify({ setName, setEmail, jokeToAdd, typeOfJoke }),
     })) as Response;
