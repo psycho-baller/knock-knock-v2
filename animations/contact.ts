@@ -82,6 +82,32 @@ const button = {
     },
   },
 };
+const addKnock = {
+  hidden: {
+    scale: 0.6,
+    opacity: 0,
+  },
+  visible: {
+    scale: 1,
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
+const addRiddle = {
+  hidden: {
+    scale: 0.6,
+    opacity: 0,
+  },
+  visible: {
+    scale: 1,
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
 export const animations = {
   form,
   title,
@@ -89,4 +115,6 @@ export const animations = {
   inputEmail,
   inputCompletion,
   button,
+  addKnock,
+  addRiddle,
 };

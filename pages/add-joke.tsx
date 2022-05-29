@@ -11,10 +11,15 @@ import "react-toastify/dist/ReactToastify.min.css";
 export default function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [completion, setCompletion] = useState("");
-  const [joke, setJoke] = useState("knock-knock");
+  const [joke, setJoke] = useState("Knock-knock");
 
-  const [first, setFirst] = useState("");
+  const [firstKnock, setFirstKnock] = useState("");
+  const [secondOne, setSecondOne] = useState("");
+  const [secondKnock, setSecondKnock] = useState("");
+
+  const [riddleQuestion, setRiddleQuestion] = useState("");
+  const [riddleAnswer, setRiddleAnswer] = useState("");
+
   let jokeStr = "9";
   if (typeof window !== "undefined") {
     jokeStr = localStorage.getItem("joke") as string;
@@ -27,9 +32,14 @@ export default function Contact() {
 
     const setName = name === "" ? "Anonymous" : name;
     const setEmail = email === "" ? "an@on" : email;
-    const res = (await fetch("https://knock-knock.vercel.app/api/submit-form", {
+    const typeOfJoke = joke;
+    const jokeToAdd =
+      firstKnock !== ""
+        ? "Knock-knock?" + "\n" + "Who's there?" + "\n" +  firstKnock + "\n" + firstKnock + " who?" + "\n" + secondKnock
+        : riddleQuestion + "\n" + riddleAnswer;
+    const res = (await fetch("http://localhost:3000/api/add-joke-api", {
       method: "POST",
-      body: JSON.stringify({ setName, setEmail, jokeStr, completion }),
+      body: JSON.stringify({ setName, setEmail, jokeToAdd, typeOfJoke }),
     })) as Response;
     if (res.status === 201) {
       toast("Thank you for contacting us!", { type: "success" });
@@ -44,90 +54,91 @@ export default function Contact() {
   // useEffect(() => {
   //   typeOfJoke = document.getElementById("joke-type") as HTMLInputElement;
   // }, []);
-  function addJoke(){
-    if (joke === "knock-knock") {
-    return (
-      <>
-        <div className={styles.oneLine}>
-          <label htmlFor="first">Knock&nbsp;Knock:</label>
-          <input
-            type="text"
-            id="first"
-            name="first"
-            placeholder="Ligma"
-            required={true}
-            value={name}
-            onChange={(e) => {
-              setFirst(e.target.value);
-              setName(e.target.value)}}
-          />
+  const firstPlaceholder = "Ligma";
+  function addJoke() {
+    if (joke === "Knock-knock") {
+      return (
+        <div>
+          <motion.div
+            className={styles.oneLine}
+            initial="hidden"
+            animate="visible"
+            variants={animations.addKnock}
+          >
+            <label htmlFor="first">Who&apos;s&nbsp;there?&nbsp;</label>
+            <input
+              type="text"
+              id="firstKnock"
+              name="firstKnock"
+              placeholder={firstPlaceholder}
+              required={true}
+              value={firstKnock}
+              onChange={(e) => {
+                setFirstKnock(e.target.value);
+                setSecondOne(e.target.value);
+              }}
+            />
+          </motion.div>
+          <motion.div
+            className={styles.oneLine}
+            initial="hidden"
+            animate="visible"
+            variants={animations.addKnock}
+          >
+            {/* Make label stay one line in a slick way */}
+            <label htmlFor="first">
+              {secondOne == "" ? firstPlaceholder : secondOne}
+              &nbsp;who?&nbsp;
+            </label>
+            <input
+              type="text"
+              id="secondKnock"
+              name="secondKnock"
+              placeholder="Ligma balls"
+              required={true}
+              value={secondKnock}
+              onChange={(e) => setSecondKnock(e.target.value)}
+            />
+          </motion.div>
         </div>
-        <div className={styles.oneLine}>
-          <label htmlFor="first">Knock&nbsp;Knock:</label>
-          <input
-            type="text"
-            id="first"
-            name="first"
-            placeholder="Ligma"
-            required={true}
-            value={name}
-            onChange={(e) => setFirst(e.target.value)}
-          />
-        </div>
-        <div className={styles.oneLine}>
-          <label htmlFor="first">Knock&nbsp;Knock:</label>
-          <input
-            type="text"
-            id="first"
-            name="first"
-            placeholder="Ligma"
-            required={true}
-            value={name}
-            onChange={(e) => setFirst(e.target.value)}
-          />
-        </div>
-        <div className={styles.oneLine}>
-          <label htmlFor="first">Knock&nbsp;Knock:</label>
-          <input
-            type="text"
-            id="first"
-            name="first"
-            placeholder="Ligma"
-            required={true}
-            value={name}
-            onChange={(e) => setFirst(e.target.value)}
-          />
-        </div>
-      </>
-    );
-    }
-    else {
+      );
+    } else {
       return (
         <>
-          <div className={styles.oneLine}>
-            <label htmlFor="first">Riddle:</label>
+          <motion.div
+            className={styles.oneLine}
+            initial="hidden"
+            animate="visible"
+            variants={animations.addRiddle}
+          >
+            <label htmlFor="first">Riddle:&nbsp;</label>
             <input
               type="text"
               id="first"
               name="first"
-              placeholder="Ligma"
+              placeholder="What has 13 hearts, but no other organs?"
               required={true}
-              value={name}
-              onChange={(e) => setFirst(e.target.value)}
+              value={riddleQuestion}
+              onChange={(e) => setRiddleQuestion(e.target.value)}
             />
-          </div>
-          <div className={styles.oneLine}>
-            <label htmlFor="first">Answer:</label>
+          </motion.div>
+          <motion.div
+            className={styles.oneLine}
+            initial="hidden"
+            animate="visible"
+            variants={animations.addRiddle}
+          >
+            <label htmlFor="first">Answer:&nbsp;</label>
             <input
               type="text"
               id="first"
               name="first"
-              placeholder="Ligma"
+              placeholder="A deck of cards"
               required={true}
-              value={name}
-              onChange={(e) => setFirst(e.target.value)}
+              value={riddleAnswer}
+              onChange={(e) => setRiddleAnswer(e.target.value)}
             />
-          </div>
+          </motion.div>
         </>
       );
     }
@@ -200,20 +211,11 @@ export default function Contact() {
           <div className={styles.dropdown}>
             <button className={styles.dropbtn}>{joke}</button>
             <div className={styles.dropdownContent}>
-              <div onClick={() => setJoke("knock-knock")}>Knock-knock</div>
+              <div onClick={() => setJoke("Knock-knock")}>Knock-knock</div>
               <div onClick={() => setJoke("Riddle")}>Riddle</div>
             </div>
           </div>
           {addJoke()}
-          {/* <textarea
-            name="message"
-            id="message"
-            rows={5}
-            placeholder=""
-            required
-            value={completion}
-            onChange={(e) => setCompletion(e.target.value)}
-          ></textarea> */}
         </motion.div>
         <motion.button
           initial="hidden"
