@@ -56,10 +56,10 @@ const BoomBamBap = (props: IndexProps) => {
   const [id, setID] = useState(9);
   useEffect(() => {
     // runs only when the page renders for the first time
-    // var randomNum = Math.floor(Math.random() * Object.keys(jokes).length);
-    // while (usedIDs.includes(randomNum)) {
-    //   randomNum = Math.floor(Math.random() * Object.keys(jokes).length);
-    // }
+    var randomNum = Math.floor(Math.random() * Object.keys(jokes).length);
+    while (usedIDs.includes(randomNum)) {
+      randomNum = Math.floor(Math.random() * Object.keys(jokes).length);
+    }
 
     // we use this if statement to make the usedIDs act as a set,
     // but since we added lines 50-52, where we reset the usedIDs local storage,
@@ -67,9 +67,9 @@ const BoomBamBap = (props: IndexProps) => {
     // since the list resets when it becomes full
     // and we are sure that the randomNum is not in the list thanks to the while loop
     // if (!usedIDs.includes(randomNum)) {
-    // setUsedIDs([...usedIDs, randomNum]);
-    // // }
-    // setID(randomNum);
+    setUsedIDs([...usedIDs, randomNum]);
+    // }
+    setID(randomNum);
 
     boomBapBap();
   }, []);

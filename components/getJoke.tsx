@@ -11,32 +11,14 @@ import buttonStyle from "../styles/addButton.module.scss";
 import { motion } from "framer-motion";
 import { animations } from "../animations/getJoke";
 
-
 const GetJoke = ({ jokes, id }) => {
   let knock: string = "";
   let who: string = "";
-  let dots: string = "";
   const joke = jokes[id];
 
   knock = joke["who's-there"];
   who = joke["who"];
 
-  function CompleteJoke() {
-    if (id == 9) {
-      if (typeof window !== "undefined") {
-        localStorage.setItem("joke", JSON.stringify(jokes[id]));
-      }
-      return (
-        <>
-          <Link href="/contact">
-            <a>
-              <h2>Complete Joke</h2>
-            </a>
-          </Link>
-        </>
-      );
-    }
-  }
   return (
     <>
       <div className={flashStyle.req}>
@@ -47,23 +29,21 @@ const GetJoke = ({ jokes, id }) => {
       </div>
       <div className={flashStyle.star}>
         <Link href="/add-joke">
-            <a>
-          <button className={buttonStyle.button}>Add Your own Joke!</button>
+          <a>
+            <button className={buttonStyle.button}>Add Your own Joke!</button>
           </a>
-          </Link>
-        <h1>
+        </Link>
+        <motion.h1
+          initial="hidden"
+          animate={["visible", "active"]}
+          variants={animations.variants}
+          whileHover={animations.whileHover}
+          drag
+          dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
+          layout="size"
+        >
           {who}
-          <motion.span
-            initial="hidden"
-            animate="visible"
-            variants={animations.variants}
-            whileHover={animations.whileHover}
-          >
-            {id == 9 ? "..." : ""}
-
-          </motion.span>
-        </h1>
-        <div className={flashStyle.completeJoke}>{CompleteJoke()}</div>
+        </motion.h1>
       </div>
     </>
   );
