@@ -60,12 +60,15 @@ export default function Contact() {
       return (
         <div>
           <motion.div
-            className={styles.oneLine}
+            // className={styles.oneLine}
             initial="hidden"
             animate="visible"
             variants={animations.addKnock}
           >
-            <label htmlFor="first">Who&apos;s&nbsp;there?&nbsp;</label>
+            <label htmlFor="first">
+              Who&apos;s&nbsp;there?
+              <span className={styles.redText}>*&nbsp;</span>
+            </label>
             <input
               type="text"
               id="firstKnock"
@@ -80,7 +83,7 @@ export default function Contact() {
             />
           </motion.div>
           <motion.div
-            className={styles.oneLine}
+            // className={styles.oneLine}
             initial="hidden"
             animate="visible"
             variants={animations.addKnock}
@@ -88,7 +91,7 @@ export default function Contact() {
             {/* Make label stay one line in a slick way */}
             <label htmlFor="first">
               {secondOne == "" ? firstPlaceholder : secondOne}
-              &nbsp;who?&nbsp;
+              &nbsp;who?<span className={styles.redText}>*&nbsp;</span>
             </label>
             <input
               type="text"
@@ -106,12 +109,14 @@ export default function Contact() {
       return (
         <>
           <motion.div
-            className={styles.oneLine}
+            // className={styles.oneLine}
             initial="hidden"
             animate="visible"
             variants={animations.addRiddle}
           >
-            <label htmlFor="first">Riddle:&nbsp;</label>
+            <label htmlFor="first">
+              Riddle:<span className={styles.redText}>*&nbsp;</span>
+            </label>
             <input
               type="text"
               id="first"
@@ -123,12 +128,14 @@ export default function Contact() {
             />
           </motion.div>
           <motion.div
-            className={styles.oneLine}
+            // className={styles.oneLine}
             initial="hidden"
             animate="visible"
             variants={animations.addRiddle}
           >
-            <label htmlFor="first">Answer:&nbsp;</label>
+            <label htmlFor="first">
+              Answer:<span className={styles.redText}>*&nbsp;</span>
+            </label>
             <input
               type="text"
               id="first"
@@ -205,9 +212,10 @@ export default function Contact() {
           animate="visible"
           variants={animations.inputCompletion}
         >
-          <label htmlFor="message">
+          <hr />
+          {/* <label htmlFor="message">
             Add Joke <span className={styles.redText}>*</span>
-          </label>
+          </label> */}
           <div className={styles.dropdown}>
             <button className={styles.dropbtn}>{joke}</button>
             <div className={styles.dropdownContent}>
