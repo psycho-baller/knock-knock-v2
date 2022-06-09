@@ -1,4 +1,4 @@
-const variants = {
+const jokeVariants = {
   hidden: {
     scale: 3.4,
     opacity: 0,
@@ -22,7 +22,7 @@ const variants = {
   },
 };
 
-const whileHover = {
+const jokeWhileHover = {
   // scale: [1, 1.5, 0.6, 1.5, 1],
   // rotate: [0, 180, 360, 180, 0],
   scale: [1, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1, 1.2],
@@ -35,7 +35,40 @@ const whileHover = {
     duration: 1,
   },
 };
+
+const addJokeButtonVariants = {
+  hidden: {
+    scale: 0,
+    opacity: 0,
+    x: 200,
+  },
+  visible: {
+    scale: 1,
+    opacity: 1,
+    x: 0,
+    transition: {
+      type: "spring",
+      delay: 11,
+      duration: 0.8,
+    },
+  },
+};
+
+const addJokeButtonWhileHover = {
+  scale: [1, 1.5, 0.6, 1.5, 1],
+  rotate: [0, 180, 360, 180, 0],
+  time: [
+    0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.9, 0.95, 1,
+  ],
+  transition:{
+    type: "spring",
+    duration: 1,
+  }
+}
+
 export const animations = {
-  variants,
-  whileHover,
+  jokeVariants,
+  jokeWhileHover,
+  addJokeButtonVariants,
+  addJokeButtonWhileHover,
 };

@@ -95,7 +95,10 @@ const Home: NextPage = () => {
             dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
           >
             <Link href="/boom-bam-bap">
-              <a>
+              <motion.a
+                drag
+                dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
+              >
                 {/*
           possible fixes:
            https://github.com/vercel/next.js/issues/7915
@@ -104,13 +107,14 @@ const Home: NextPage = () => {
           ------------------------------------------------------------
           make it load on the same page:
            https://flaviocopes.com/react-show-different-component-on-click */}
+
                 <Image
                   src="/brown-door.svg"
                   alt="door"
                   height={450}
                   width={300}
                 />
-              </a>
+              </motion.a>
             </Link>
           </motion.div>
         </motion.div>

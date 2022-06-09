@@ -30,14 +30,29 @@ const GetJoke = ({ jokes, id }) => {
       <div className={flashStyle.star}>
         <Link href="/add-joke">
           <a>
-            <button className={buttonStyle.button}>Add Your own Joke!</button>
+            <motion.button
+              className={buttonStyle.button}
+              initial="hidden"
+              animate="visible"
+              variants={animations.addJokeButtonVariants}
+              whileHover={animations.addJokeButtonWhileHover}
+            >
+              Add Your own Joke!
+            </motion.button>
           </a>
         </Link>
         <motion.h1
           initial="hidden"
           animate={["visible", "active"]}
-          variants={animations.variants}
-          whileHover={animations.whileHover}
+          variants={animations.jokeVariants}
+          whileHover={animations.jokeWhileHover}
+          // const constraintsRef = useRef(null);
+
+          // return (
+          //   <motion.div className="container" ref={constraintsRef}>
+          //     <motion.div className="item" drag dragConstraints={constraintsRef} />
+          //   </motion.div>
+          // );
           drag
           dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
           layout="size"
