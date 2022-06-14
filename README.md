@@ -1,5 +1,5 @@
 [![time spent](https://wakatime.com/badge/user/33addb7e-f5e6-470b-a55b-0a8babc62ebb/project/5fb9e2d8-27fe-465b-9c13-9511bff79b9a.svg?style=flat-square)](https://wakatime.com/badge/user/33addb7e-f5e6-470b-a55b-0a8babc62ebb/project/5fb9e2d8-27fe-465b-9c13-9511bff79b9a)
-![AppVeyor](https://img.shields.io/appveyor/build/psycho-baller/knock-knock-v2?style=flat-square)
+<!-- ![AppVeyor](https://img.shields.io/appveyor/build/psycho-baller/knock-knock-v2?style=flat-square) -->
 
 ## Table of contents
 * [What it does](#what-it-does)
