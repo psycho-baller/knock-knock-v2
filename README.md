@@ -1,8 +1,9 @@
 [![time spent](https://wakatime.com/badge/user/33addb7e-f5e6-470b-a55b-0a8babc62ebb/project/5fb9e2d8-27fe-465b-9c13-9511bff79b9a.svg?style=flat-square)](https://wakatime.com/badge/user/33addb7e-f5e6-470b-a55b-0a8babc62ebb/project/5fb9e2d8-27fe-465b-9c13-9511bff79b9a)
+![AppVeyor](https://img.shields.io/appveyor/build/psycho-baller/knock-knock-v2?style=flat-square)
 
 ## Table of contents
 * [What it does](#what-it-does)
-* [Setup](#setup)
+* [Setup](#technologies-used)
 * [connect with me](#connect-with-me)
 * [Future plans](#future-plans)
 
@@ -17,9 +18,8 @@ After 2 months of working on it(APR/22-JUN/22), I made a lot of additions, subtr
 
 Please [connect with me](#connect-with-me) if you have any good ideas to improve this project in any way.
 
-# Setup
+# Technologies used
 
-Some Technologies used:
 - **[NextJs](https://nextjs.org/)** to create a full-stack ReactJs Application.
 - **[MongoDB](https://www.mongodb.com/)** to store the knock-knock jokes in [JSON](https://en.wikipedia.org/wiki/JSON) format. (Thought that a [NoSQL](https://en.wikipedia.org/wiki/NoSQL) DB would suit this project's DB needs best).
 - **[NotionAPI](https://developers.notion.com/)** to store the data the user sent from the [add-joke](https://knock-knock.vercel.app/add-joke) page in a [Notion database](https://www.notion.so/help/what-is-a-database) which I can turn into a [csv file](https://en.wikipedia.org/wiki/Comma-separated_values).
