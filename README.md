@@ -20,13 +20,18 @@ Please [connect with me](#connect-with-me) if you have any good ideas to improve
 
 # Technologies used
 
-- **[NextJs](https://nextjs.org/)** to create a full-stack ReactJs Application.
+- **[NextJs](https://nextjs.org/)** to create a full-stack **[ReactJs](https://reactjs.org/)** Application.
+    - 1st time using it.
+- **[TypeScript](https://www.typescriptlang.org/)** to create a type-safe code.
+    - 1st time using it.
 - **[MongoDB](https://www.mongodb.com/)** to store the knock-knock jokes in [JSON](https://en.wikipedia.org/wiki/JSON) format.
     - Thought that a [NoSQL](https://en.wikipedia.org/wiki/NoSQL) DB would suit this project's DB needs best
     - 1st project using it.
-- **[NotionAPI](https://developers.notion.com/)** to store the data the user sent from the [add-joke](https://knock-knock.vercel.app/add-joke) page in a [Notion database](https://www.notion.so/help/what-is-a-database) which I can turn into a [csv file](https://en.wikipedia.org/wiki/Comma-separated_values) (1st project using it).
+- **[NotionAPI](https://developers.notion.com/)** to store the data the user sent from the [add-joke](https://knock-knock.vercel.app/add-joke) page in a [Notion database](https://www.notion.so/help/what-is-a-database) which I can turn into a [csv file](https://en.wikipedia.org/wiki/Comma-separated_values)
+    - 1st project using it.
 - **[SCSS](https://en.wikipedia.org/wiki/Sass_(stylesheet_language))** to write CSS much quicker (2nd project using it).
-- **[Framer Motion](https://www.framer.com/motion/)** to make cool animations in ReactJs (1st project using it).
+- **[Framer Motion](https://www.framer.com/motion/)** to make cool animations in ReactJs 
+    - 1st project using it.
 
 # connect with me
 if your interested in collaborating or learning how I did this, please feel free to contact me through:
