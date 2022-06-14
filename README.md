@@ -2,12 +2,14 @@
 <!-- ![AppVeyor](https://img.shields.io/appveyor/build/psycho-baller/knock-knock-v2?style=flat-square) -->
 
 ## Table of contents
+
 * [What it does](#what-it-does)
 * [Technologies used](#technologies-used)
 * [connect with me](#connect-with-me)
 * [Future plans](#future-plans)
 
 # What it does
+
 My initial goal for this project is to show knock-knock jokes in the most creative way given the skills I have in web dev.
 
 Basics features of the project currently:
@@ -35,6 +37,7 @@ Please [connect with me](#connect-with-me) if you have any good ideas to improve
     - 1st project using it.
 
 # connect with me
+
 if your interested in collaborating or learning how I did this, please feel free to contact me through:
 
 discord: `Rami#2782`
@@ -46,6 +49,7 @@ Instagram: [@psycho.baller](https://www.instagram.com/psycho.baller/)
 [Linkedin](https://www.linkedin.com/in/rami--maalouf/)
 
 # Future plans
+
 For now I'm satisfied with what I created but I'm aware of the several possible improvements I can do on this project. But in terms of the big plans I would like to implement on this project:
 - Faster render time
 - Make the project more collaboration friendly using MongoDB
