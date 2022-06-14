@@ -31,6 +31,7 @@ Please [connect with me](#connect-with-me) if you have any good ideas to improve
     - 1st project using it.
 - **[NotionAPI](https://developers.notion.com/)** to store the data the user sent from the [add-joke](https://knock-knock.vercel.app/add-joke) page in a [Notion database](https://www.notion.so/help/what-is-a-database) which I can turn into a [csv file](https://en.wikipedia.org/wiki/Comma-separated_values)
     - 1st project using it.
+    - Since I love Notion and use it everyday, I had to use and learn it's API.
 - **[SCSS](https://en.wikipedia.org/wiki/Sass_(stylesheet_language))** to write CSS much quicker
     - 2nd project using it.
 - **[Framer Motion](https://www.framer.com/motion/)** to make cool animations in ReactJs 
