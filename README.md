@@ -7,35 +7,27 @@
 * [Future plans](#future-plans)
 
 # What it does
-If you're UCalgary and taking PSYC 200,201,203? This could be helpful for you.
+My initial goal for this project is to show knock-knock jokes in the most creative way given the skills I have in web dev.
 
-When you run this code it will automatically check for u if there is a study up, and if there is, it will show you the study description and how many credits you will gain from taking it.
+Basics features of the project currently:
+- Show the knock knock joke in sync with a [funny audio](https://youtu.be/bgr8z8Zm9WE?t=10) with cool animations.
+- being able to add in your knock knock jokes or/and riddle through it
 
-Then, you will be asked weather you want to take this study or not. If there is more than one study available, it will show you the decription of the other study once you decline the previous study.
-
-If you've accepted a study, you will be asked weather you want to start working on the study or not (if it's an online study).
+After 2 months of working on it(APR/22-JUN/22), I made a lot of additions, subtractions, and changes of plans. My learning aim for this project was to be familiar and comfortable with NextJs/ReactJs since this is my first time I use them. In addition to that, I wanted to get used to TypeScript.
 
 Please [connect with me](#connect-with-me) if you have any good ideas to improve this project in any way.
 
 # Setup
-Firstly, you will need to install python and have Google Chrome in your PC, I will add the ability to use Firefox instead of Chrome soon. You can install the latest version of python with the help of <a href="https://youtu.be/dQw4w9WgXcQ" target="_blank">this</a> tutorial or <a href="https://youtu.be/Kn1HF3oD19c" target="_blank">this</a> tutorial. Make sure you've installed pip while installing python.
 
-Next, you'll have to install 3 packages: Selenium, Webdriver Manager, and BeautifulSoup.
-
-To install these packages, go to your command prompt (search 'cmd' and you'll find the application) and type:
-
-`pip install selenium`
-
-`pip install webdriver-manager`
-
-`pip install bs4`
-
-Then, you can either install the zip file [here](https://github.com/psycho-baller/UCalgary-research-participation/archive/refs/heads/master.zip) or clone the repository or simply copy paste the [main.py](https://github.com/psycho-baller/UCalgary-research-participation/blob/master/main.py) code to your own .py file
-
-Finally, before running the [main.py](https://github.com/psycho-baller/UCalgary-research-participation/blob/master/main.py) file, insert your USER ID and password in line 25 and 26 respectively between the single quotation marks.
+Some Technologies used:
+- **[NextJs](https://nextjs.org/)** to create a full-stack ReactJs Application.
+- **[MongoDB](https://www.mongodb.com/)** to store the knock-knock jokes in [JSON](https://en.wikipedia.org/wiki/JSON) format. (Thought that a [NoSQL](https://en.wikipedia.org/wiki/NoSQL) DB would suit this project's DB needs best).
+- **[NotionAPI](https://developers.notion.com/)** to store the data the user sent from the [add-joke](https://knock-knock.vercel.app/add-joke) page in a [Notion database](https://www.notion.so/help/what-is-a-database) which I can turn into a [csv file](https://en.wikipedia.org/wiki/Comma-separated_values).
+- **[SCSS](https://en.wikipedia.org/wiki/Sass_(stylesheet_language))** to write CSS much quicker
+- **[Framer Motion](https://www.framer.com/motion/)** to make cool animations in ReactJs
 
 # connect with me
-if you face any problems or interested in learning how I did this, please feel free to contact me through:
+if your interested in collaborating or learning how I did this, please feel free to contact me through:
 
 discord: `Rami#2782`
 
@@ -43,9 +35,10 @@ Email: [rami.rami@ucalgary.ca](mailto:rami.rami@ucalgary.ca)
 
 Instagram: [@psycho.baller](https://www.instagram.com/psycho.baller/)
 
-[Linkedin](https://www.linkedin.com/in/rami-maalouf-0b0228215/)
+[Linkedin](https://www.linkedin.com/in/rami--maalouf/)
 
 # Future plans
-It is far from being done, I'm still making changes to the code.
-
-The program takes around 10-15 seconds to check if there's a study currently, There is a way where it can take just a few seconds but I was unable to make it work, maybe I will try again when I take PSYC 203.
+For now I'm satisfied with what I created but I'm aware of the several possible improvements I can do on this project. But in terms of the big plans I would like to implement on this project:
+- Faster render time
+- Make the project more collaboration friendly using MongoDB
+- Gamify the experience by giving points for every guessed riddle or knock-knock completion
