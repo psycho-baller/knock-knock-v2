@@ -3,7 +3,7 @@
 
 ## Table of contents
 * [What it does](#what-it-does)
-* [Setup](#technologies-used)
+* [Technologies used](#technologies-used)
 * [connect with me](#connect-with-me)
 * [Future plans](#future-plans)
 
