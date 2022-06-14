@@ -11,7 +11,7 @@
 My initial goal for this project is to show knock-knock jokes in the most creative way given the skills I have in web dev.
 
 Basics features of the project currently:
-- Show the knock knock joke in sync with a [funny audio](https://youtu.be/bgr8z8Zm9WE?t=10) with cool animations.
+- Show the knock knock joke in sync with a [funny audio](https://youtu.be/bgr8z8Zm9WE?t=10) (not rickroll) with cool animations.
 - being able to add in your knock knock jokes or/and riddle through it
 
 After 2 months of working on it(APR/22-JUN/22), I made a lot of additions, subtractions, and changes of plans. My learning aim for this project was to be familiar and comfortable with NextJs/ReactJs since this is my first time I use them. In addition to that, I wanted to get used to TypeScript.
