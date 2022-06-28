@@ -1,10 +1,61 @@
+// @import "compass/css3";
+
+$blue: #00EBF3;
 .button{
-    background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
     // visibility: hidden;
-    // position: absolute;
-    right: 5;
-    // bottom: 5;
-    top: 5;
-    // left: 5;
+    // right: 5;
+    // // bottom: 5;
+    // top: 5;
+    // // left: 5;
+    // float: right;
+  // background-color: #0093e9;
+  // background-image: linear-gradient(180deg, #2c3adb 0%, #37cbba 100%);
+//   padding: 0.5rem 1rem;
+  border: none;
+  color: #B3A0D6;//#D08FC2;//#EB6E98;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 6px;
+  // box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+  // margin: 0 auto;
+  // display: block;
+
+//   width:100px;
+//   height: 100px;
+  border-radius: 50%;
+    cursor: pointer;
+  // border: 1px solid lighten($blue,8%);
+//   background: radial-gradient(ellipse at center, lighten($blue,17%), lighten($blue,12%));
+  // box-shadow: 0 15px 50px $blue,
+  //             0 -15px 60px lighten($blue,30%),
+  //             inset 0 2px 2px lighten($blue,20%);
+  -webkit-transition:all 0.3s ease;
+ 
+  &:active {
+    margin-top: 1px;
+    -webkit-transform: scale(0.95);
+    -webkit-transition:all 0.3s ease;
+    outline: none;
+    background: radial-gradient(ellipse at center, lighten($blue,15%), lighten($blue,10%));
+    box-shadow: 0 15px 80px $blue,
+                0 -15px 80px lighten($blue,30%),
+                inset 0 -2px 2px lighten($blue,10%);
+  }
+  &:focus { outline: none; }
+}
+.big{
+    width: fit-content; 
+  /* To adjust the height as well */ 
+  height: fit-content;
     float: right;
+  position: relative;
+  z-index: 100;
+  display: block
+
+
+}
+
+.link{
+  position: relative;
+  z-index: 100;
 }

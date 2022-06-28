@@ -22,19 +22,6 @@ const jokeVariants = {
   },
 };
 
-const jokeWhileHover = {
-  // scale: [1, 1.5, 0.6, 1.5, 1],
-  // rotate: [0, 180, 360, 180, 0],
-  scale: [1, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1, 1.2],
-  time: [
-    0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.9, 0.95, 1,
-  ],
-
-  transition: {
-    type: "spring",
-    duration: 1,
-  },
-};
 
 const addJokeButtonVariants = {
   hidden: {
@@ -48,27 +35,53 @@ const addJokeButtonVariants = {
     x: 0,
     transition: {
       type: "spring",
-      delay: 11,
+      delay: 14,
       duration: 0.8,
     },
   },
 };
 
 const addJokeButtonWhileHover = {
-  scale: [1, 1.5, 0.6, 1.5, 1],
-  rotate: [0, 180, 360, 180, 0],
+  // scale: [1, 1.5, 1],
+  rotate: [0, 180, 360],
+  // time: [
+  //   0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.9, 0.95, 1,
+  // ],
+  transition:{
+    type: "spring",
+    duration: 0.2,
+  }
+}
+
+const jokeWhileTap = {
+  scale: [1, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1, 1.2],
   time: [
     0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.9, 0.95, 1,
   ],
   transition:{
     type: "spring",
     duration: 1,
+
   }
 }
 
+const addJokeButtonOnMouseLeave = {
+  scale: [1, 1.5, 1],
+  rotate: [0, 180, 360],
+  transition: {
+    type: "spring",
+    duration: 0.6,
+  }
+}
+
+// const jokeOnMouseLeave = {
+
+
+
 export const animations = {
   jokeVariants,
-  jokeWhileHover,
   addJokeButtonVariants,
   addJokeButtonWhileHover,
+  jokeWhileTap,
+  addJokeButtonOnMouseLeave,
 };

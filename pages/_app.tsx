@@ -2,6 +2,8 @@
 // EXCEPT if you made it a module (like: name.module.css), which is not the case here
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
+import Head from "next/head";
+
 import { motion, AnimatePresence } from "framer-motion";
 // this is responsible for rendering all the pages
 // the end point for all the pages before rendering them
@@ -29,10 +31,14 @@ function MyApp({ Component, pageProps}: AppProps) {
     //     },
     //   }}
     // >
+    <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
       <Component {...pageProps} />
+    </>
     // </motion.div>
     // </AnimatePresence>
-
   );
 }
 

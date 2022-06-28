@@ -5,13 +5,15 @@
         - not possible to click early coz button wont be shown
 */
 import Link from "next/link";
-import { useState } from "react";
 import flashStyle from "../styles/index.module.scss";
 import buttonStyle from "../styles/addButton.module.scss";
 import { motion } from "framer-motion";
 import { animations } from "../animations/getJoke";
+import { IoMdAddCircle } from 'react-icons/io';
+import ReactTooltip from 'react-tooltip';
 
 const GetJoke = ({ jokes, id }) => {
+
   let knock: string = "";
   let who: string = "";
   const joke = jokes[id];
@@ -22,44 +24,69 @@ const GetJoke = ({ jokes, id }) => {
   return (
     <>
       <div className={flashStyle.req}>
-        <h1> {knock} </h1>
+        <motion.h1
+          drag
+          whileDrag={{ scale: 1.1 }}
+          dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
+          dragElastic={1}
+          whileTap={animations.jokeWhileTap}
+        >
+          {knock}
+        </motion.h1>
       </div>
       <div className={flashStyle.res}>
-        <h1>{knock} who?</h1>
+        <motion.h1
+          drag
+          whileDrag={{ scale: 1.1 }}
+          dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
+          dragElastic={1}
+          whileTap={animations.jokeWhileTap}
+        >
+          {knock} who?
+        </motion.h1>
       </div>
-      <div className={flashStyle.star}>
-        <Link href="/add-joke">
-          <a>
-            <motion.button
-              className={buttonStyle.button}
-              initial="hidden"
-              animate="visible"
-              variants={animations.addJokeButtonVariants}
-              whileHover={animations.addJokeButtonWhileHover}
-            >
-              Add Your own Joke!
-            </motion.button>
+      <motion.div className={flashStyle.star}>
+        <motion.div
+            data-tip="Add your own joke!"
+
+        className={buttonStyle.big}
+          initial="hidden"
+            animate="visible"
+            variants={animations.addJokeButtonVariants}
+            whileHover={animations.addJokeButtonWhileHover}
+          >
+        <Link passHref href="/add-joke">
+          <a
+          className={buttonStyle.link}
+            data-tip="Add your own joke!"
+            
+          >
+            <IoMdAddCircle size={60}
+                        className={buttonStyle.button}
+ />
           </a>
+          
         </Link>
+            <ReactTooltip place="left" type="dark" effect="solid" />
+
+        </motion.div>
+            {/* <ReactTooltip place="left" type="dark" effect="solid" /> */}
+
         <motion.h1
           initial="hidden"
           animate={["visible", "active"]}
           variants={animations.jokeVariants}
-          whileHover={animations.jokeWhileHover}
-          // const constraintsRef = useRef(null);
-
-          // return (
-          //   <motion.div className="container" ref={constraintsRef}>
-          //     <motion.div className="item" drag dragConstraints={constraintsRef} />
-          //   </motion.div>
-          // );
+          whileTap={animations.jokeWhileTap}
+          // onMouseOut={animations.jokeOnMouseLeave}
           drag
+          whileDrag={{ scale: 1.1 }}
           dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-          layout="size"
+          dragElastic={1}
+          layout
         >
           {who}
         </motion.h1>
-      </div>
+      </motion.div>
     </>
   );
 };
