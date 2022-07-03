@@ -115,7 +115,7 @@ const BoomBamBap = (props: IndexProps) => {
 
 export default BoomBamBap;
 
-export async function getServerSideProps(context: any) {
+export async function getStaticProps(context: any) {
   const client = await clientPromise;
 
   const db = client.db("knock-knock");
