@@ -67,7 +67,9 @@ const GetJoke = ({ jokes, id }) => {
           </a>
           
         </Link>
-            <ReactTooltip place="left" type="dark" effect="solid" />
+            <ReactTooltip place="left" type="dark"
+            // effect="solid"
+            />
 
         </motion.div>
             {/* <ReactTooltip place="left" type="dark" effect="solid" /> */}
