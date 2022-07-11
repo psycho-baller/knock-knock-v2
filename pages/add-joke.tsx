@@ -35,14 +35,26 @@ export default function Contact() {
     const typeOfJoke = joke;
     const jokeToAdd =
       firstKnock !== ""
-        ? "Knock-knock?" + "\n" + "Who's there?" + "\n" +  firstKnock + "\n" + firstKnock + " who?" + "\n" + secondKnock
+        ? "Knock-knock?" +
+          "\n" +
+          "Who's there?" +
+          "\n" +
+          firstKnock +
+          "\n" +
+          firstKnock +
+          " who?" +
+          "\n" +
+          secondKnock
         : riddleQuestion + "\n" + riddleAnswer;
-    const res = (await fetch("https://knock-knock.vercel.app/api/add-joke-api", {
-      method: "POST",
-      body: JSON.stringify({ setName, setEmail, jokeToAdd, typeOfJoke }),
-    })) as Response;
+    const res = (await fetch(
+      "https://knock-knock.vercel.app/api/add-joke-api",
+      {
+        method: "POST",
+        body: JSON.stringify({ setName, setEmail, jokeToAdd, typeOfJoke }),
+      }
+    )) as Response;
     if (res.status === 201) {
-      toast("Thank you for contacting us!", { type: "success" });
+      toast("Joke added successfully!", { type: "success" });
     } else {
       toast("Please re-check your inputs.", { type: "error" });
     }

@@ -72,7 +72,6 @@ const GetJoke = ({ jokes, id }) => {
             />
 
         </motion.div>
-            {/* <ReactTooltip place="left" type="dark" effect="solid" /> */}
 
         <motion.h1
           initial="hidden"
