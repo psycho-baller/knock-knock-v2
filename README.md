@@ -52,7 +52,7 @@ Instagram: [@psycho.baller](https://www.instagram.com/psycho.baller/)
 # Future plans
 
 For now I'm satisfied with what I created but I'm aware of the several possible improvements I can do on this project. But in terms of the big plans I would like to implement on this project:
-- [ ] Faster render time
 - [ ] Make the project more collaboration friendly using MongoDB
 - [ ] Gamify the experience by giving points for every guessed riddle or knock-knock completion
 - [ ] Being able to drag each joke and put it in a good or bad joke bucket (using framer motion drag)
+- [x] Faster render time
