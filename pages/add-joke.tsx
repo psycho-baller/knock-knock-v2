@@ -1,6 +1,6 @@
 import Head from "next/head";
 import styles from "../styles/contactForm.module.scss";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { animations } from "../animations/contact";
 
@@ -20,12 +20,6 @@ export default function Contact() {
   const [riddleQuestion, setRiddleQuestion] = useState("");
   const [riddleAnswer, setRiddleAnswer] = useState("");
 
-  let jokeStr = "9";
-  if (typeof window !== "undefined") {
-    jokeStr = localStorage.getItem("joke") as string;
-  }
-  //   const joke = JSON.parse(JSON.parse(JSON.stringify(jokeStr))) as jokeSchema;
-  //     console.log(joke, "parsed");
 
   const submitForm = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

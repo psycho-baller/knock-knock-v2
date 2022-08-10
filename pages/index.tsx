@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import { Howl, Howler } from "howler";
+import { Howl } from "howler";
 import { motion } from "framer-motion";
 import { animation } from "../animations";
 
