@@ -4,7 +4,6 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 
-import { motion, AnimatePresence } from "framer-motion";
 // this is responsible for rendering all the pages
 // the end point for all the pages before rendering them
 function MyApp({ Component, pageProps}: AppProps) {
@@ -15,6 +14,7 @@ function MyApp({ Component, pageProps}: AppProps) {
     <>
       <Head>
         <title>Knock Joke Heaven</title>
+        <meta name="description" content="A Heaven for all knock-knock joke lovers. This website reveals the joke in a very creative way. And to top it all off, you can also add your own joke" />
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>

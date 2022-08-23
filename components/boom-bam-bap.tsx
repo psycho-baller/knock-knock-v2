@@ -66,8 +66,7 @@ const BoomBamBap = (props: IndexProps) => {
     <div className={flashStyle.fullScreen}>
       <Head>
         <title>Knock Knock</title>
-        <meta name="description" content="" />
-        <link rel="icon" href="/torch.svg" />
+        <link rel="icon" href="/flashlight.svg" />
       </Head>
       <div className={flashStyle.animatedGrid}>
         <div className={flashStyle.k}>
