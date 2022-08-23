@@ -41,7 +41,7 @@ export default function Contact() {
           secondKnock
         : riddleQuestion + "\n" + riddleAnswer;
     const res = (await fetch(
-      "https://knock-knock.vercel.app/api/add-joke-api",
+      "https://knock-joke-heaven.vercel.app/api/add-joke-api",
       {
         method: "POST",
         body: JSON.stringify({ setName, setEmail, jokeToAdd, typeOfJoke }),

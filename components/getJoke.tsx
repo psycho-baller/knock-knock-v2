@@ -9,11 +9,10 @@ import flashStyle from "../styles/index.module.scss";
 import buttonStyle from "../styles/addButton.module.scss";
 import { motion } from "framer-motion";
 import { animations } from "../animations/getJoke";
-import { IoMdAddCircle } from 'react-icons/io';
-import ReactTooltip from 'react-tooltip';
+import { IoMdAddCircle } from "react-icons/io";
+import ReactTooltip from "react-tooltip";
 
 const GetJoke = ({ jokes, id }) => {
-
   let knock: string = "";
   let who: string = "";
   const joke = jokes[id];
@@ -47,30 +46,19 @@ const GetJoke = ({ jokes, id }) => {
       </div>
       <motion.div className={flashStyle.star}>
         <motion.div
-            data-tip="Add your own joke!"
-
-        className={buttonStyle.big}
+          data-tip="Add your own joke!"
+          className={buttonStyle.big}
           initial="hidden"
-            animate="visible"
-            variants={animations.addJokeButtonVariants}
-            whileHover={animations.addJokeButtonWhileHover}
-          >
-        <Link passHref href="/add-joke">
-          <a
-          className={buttonStyle.link}
-            data-tip="Add your own joke!"
-            
-          >
-            <IoMdAddCircle size={60}
-                        className={buttonStyle.button}
- />
-          </a>
-          
-        </Link>
-            <ReactTooltip place="left" type="dark"
-            // effect="solid"
-            />
-
+          animate="visible"
+          variants={animations.addJokeButtonVariants}
+          whileHover={animations.addJokeButtonWhileHover}
+        >
+          <Link passHref href="/add-joke">
+            <a className={buttonStyle.link} data-tip="Add your own joke!">
+              <IoMdAddCircle size={60} className={buttonStyle.button} />
+            </a>
+          </Link>
+          <ReactTooltip place="left" type="dark" effect="solid" />
         </motion.div>
 
         <motion.h1

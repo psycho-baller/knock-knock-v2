@@ -12,33 +12,14 @@ function MyApp({ Component, pageProps}: AppProps) {
   // proof: use console.log and you'll get a a log in both places
 
   return (
-    // <AnimatePresence
-    // exitBeforeEnter={true}>
-    // <motion.div
-    //   key={router.route}
-    //   initial="pageInitial"
-    //   animate="pageAnimate"
-    //   exit="pageExit"
-    //   variants={{
-    //     pageInitial: {
-    //       opacity: 0,
-    //     },
-    //     pageAnimate: {
-    //       opacity: 1,
-    //     },
-    //     pageExit: {
-    //       opacity: 0,
-    //     },
-    //   }}
-    // >
     <>
       <Head>
+        <title>Knock Joke Heaven</title>
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <Component {...pageProps} />
     </>
-    // </motion.div>
-    // </AnimatePresence>
   );
 }
 
