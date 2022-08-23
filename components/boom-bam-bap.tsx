@@ -41,7 +41,7 @@ const BoomBamBap = (props: IndexProps) => {
     }
   }, [jokes, usedIDs]);
 
-  const [id, setID] = useState(10);
+  const [id, setID] = useState(0);
   useEffect(() => {
     // runs only when the page renders for the first time
     var randomNum = Math.floor(Math.random() * Object.keys(jokes).length);
