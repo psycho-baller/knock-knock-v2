@@ -14,8 +14,12 @@ function MyApp({ Component, pageProps}: AppProps) {
     <>
       <Head>
         <title>Knock Joke Heaven</title>
-        <meta name="description" content="A Heaven for all knock-knock joke lovers. This website reveals the joke in a very creative way. And to top it all off, you can also add your own joke" />
-
+        <meta
+          name="description"
+          content="A Heaven for all knock-knock joke lovers. This website reveals the joke in a very creative way. And to top it all off, you can also add your own joke"
+        />
+        <meta charSet="utf-8" />
+        <meta name="author" content="Rami Maalouf" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <Component {...pageProps} />

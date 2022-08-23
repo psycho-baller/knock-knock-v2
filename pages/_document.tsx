@@ -10,11 +10,7 @@ export default class MyDocument extends Document {
         
         return (
           <Html lang="en">
-            <Head>
-              <meta charSet="utf-8" />
-              <meta name="description" content="knock-knock joke generator" />
-              <meta name="author" content="Rami Maalouf" />
-            </Head>
+            <Head/>
             <body>
               <Main />
             </body>
